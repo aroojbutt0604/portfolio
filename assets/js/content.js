@@ -148,9 +148,10 @@ window.SITE = {
   cases: [
     {
       id: "car-removal-audit", tags: ["google"], c1: "#3D4FE8", c2: "#07987F", icon: "search",
-      client: "Junk car removal, Melbourne · via Hello Success",
+      client: "Junk Cars Removal, Sydney · via Hello Success",
       title: "Finding a 3.5x CPA gap in Google Ads",
       summary: "An audit showed the account wasn't losing on price. It was losing on bid strategy and rank.",
+      cover: "junkcars-site",
       stats: [["$16.88", "PMax cost per conversion"], ["$58.28", "Search cost per conversion"], ["19.99%", "impression share, #1 of 9"]],
       problem: "Leads looked expensive, but the account was already #1 for impression share. The real problems were a rank gap on top-of-page placements and a Search campaign still bidding on Maximise Clicks.",
       actions: [
@@ -160,7 +161,11 @@ window.SITE = {
         "Set a 2-week re-measure point against the two competitors winning top of page"
       ],
       result: "A clear diagnosis for 11 Jun to 1 Jul 2026: A$422 on PMax returned 25 conversions while A$525 on Search returned 9, with a plan to move budget to the campaign that converts.",
-      flow: [["Audit", "Auction insights"], ["Diagnose", "Bid strategy mismatch"], ["Fix", "Max conversions + PMax"], ["Re-measure", "2-week check"]]
+      flow: [["Audit", "Auction insights"], ["Diagnose", "Bid strategy mismatch"], ["Fix", "Max conversions + PMax"], ["Re-measure", "2-week check"]],
+      media: [
+        { src: "junkcars-site", alt: "Junk Cars Removal website: leading car wrecker in Sydney" },
+        { src: "junkcars-services", alt: "Junk Cars Removal services: cash for cars, scrap cars, unwanted car removal" }
+      ]
     },
     {
       id: "towing-leadgen", tags: ["google"], c1: "#E8803D", c2: "#3D4FE8", icon: "phone",
@@ -297,6 +302,7 @@ window.SITE = {
       client: "Skin Chemistry · Signific",
       title: "Ending a sales slump caused by ad fatigue",
       summary: "Shoppers were adding to cart and leaving. The gap was trust.",
+      cover: "skin-chemistry-site",
       stats: [["5", "new creatives"], ["3", "parts audited: ads, site, reviews"]],
       problem: "Sales had dropped because of ad fatigue, and shoppers who added to cart weren't buying.",
       actions: [
@@ -306,7 +312,11 @@ window.SITE = {
         "Launched retargeting with testimonials and UGC for cart abandoners"
       ],
       result: "The rough patch ended and sales increased.",
-      flow: [["Audit", "Ads, site, reviews"], ["Refresh", "5 creatives"], ["Rebuild trust", "UGC retargeting"], ["Recover", "Sales up"]]
+      flow: [["Audit", "Ads, site, reviews"], ["Refresh", "5 creatives"], ["Rebuild trust", "UGC retargeting"], ["Recover", "Sales up"]],
+      media: [
+        { src: "skin-chemistry-site", alt: "Skin Chemistry website homepage" },
+        { src: "skin-chemistry-bestsellers", alt: "Skin Chemistry best sellers and bundles" }
+      ]
     },
     {
       id: "meadow-city", tags: ["social"], c1: "#3D4FE8", c2: "#C13DE8", icon: "home",
