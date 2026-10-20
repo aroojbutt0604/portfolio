@@ -4,9 +4,10 @@ A static portfolio site for Arooj Butt, a growth and performance marketer. It's 
 
 ## Editing content
 
-All text, numbers, case studies and gallery items live in **`assets/js/content.js`**. To change anything on the page, edit that file and refresh. You shouldn't need to touch `index.html` or `main.js` for content changes.
+All text, numbers, case studies and gallery items live in **`assets/js/content.js`**. After changing CSS or JS, bump the `?v=` number on the three asset links in `index.html` so returning visitors don't get a cached copy. To change anything on the page, edit that file and refresh. You shouldn't need to touch `index.html` or `main.js` for content changes.
 
 - **Case study:** add an object to `cases`. `tags` controls which filter chips show it. `media` takes image slugs or `{ video, poster }` objects.
+- **Website or store:** add to `websites` with `name`, `url`, `platform`, `text` and `shots` (image slugs; leave empty for a branded placeholder).
 - **Gallery item:** add to `gallery` with `cat` set to `carousel`, `ads`, `branding`, `social`, `personal` or `video`. Carousels take a `slides` array.
 - **Images:** each image slug needs two files:
   - `assets/img/full/<slug>.jpg`: about 1600px on the long edge

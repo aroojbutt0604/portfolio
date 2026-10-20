@@ -9,7 +9,7 @@ window.SITE = {
     name: "Arooj Butt",
     initials: "AB",
     status: "Social Media Manager & Content Strategist at Hello Success",
-    roles: ["Meta Ads that sell", "Google Ads lead generation", "WhatsApp funnels and automation", "UGC and creator content", "Brand building"],
+    roles: ["Meta Ads that sell", "Google Ads lead generation", "Shopify stores that convert", "AI automations and agents", "WhatsApp funnels", "UGC and creator content", "Brand building"],
     tags: ["Growth marketing", "Performance marketing", "Social and brand"],
     tagline: "I don't create content. I create conversations that convert.",
     lede: "Growth marketer with five years across performance marketing, social media and brand building. I turn ad spend and content into leads, bookings and orders for brands in Pakistan, the US and Australia.",
@@ -36,6 +36,7 @@ window.SITE = {
   about: [
     "I run Meta and Google Ads, and I fix the funnel behind the ads: website conversion, bundles that raise order value, WhatsApp automation and CRM tracking.",
     "I also build the brand and content side: UGC, creator communities, brand books and campaigns that reach beyond digital, from billboards to a 2,000-person launch event.",
+    "Behind the marketing, I build the tools it runs on: Shopify stores, websites and landing pages, plus AI automations and agentic workflows that take repetitive work off the team.",
     "My work spans e-commerce, healthcare, real estate, education and travel. I have led teams as a senior manager and closed new clients for the agencies I worked with."
   ],
   facts: [
@@ -52,7 +53,10 @@ window.SITE = {
     { icon: "funnel", title: "Funnels and CRO", text: "Website conversion, bundles that raise order value, WhatsApp automation and Google Sheets CRM tracking.", c1: "#E83D8A", c2: "#E8803D" },
     { icon: "play", title: "Social and content", text: "Content calendars, Reel scripts, UGC programmes and creator communities built around the brand.", c1: "#07987F", c2: "#3D8EE8" },
     { icon: "spark", title: "Brand building", text: "Brand books, identity guides and campaigns beyond digital: events, outdoor, flyers and PR.", c1: "#3D8EE8", c2: "#3D4FE8" },
-    { icon: "chart", title: "Strategy and audits", text: "Account audits, competitor research and launch plans with a clear 90-day roadmap.", c1: "#E8803D", c2: "#07987F" }
+    { icon: "chart", title: "Strategy and audits", text: "Account audits, competitor research and launch plans with a clear 90-day roadmap.", c1: "#E8803D", c2: "#07987F" },
+    { icon: "bag", title: "Shopify stores", text: "Stores built to sell: product and collection setup, bundles, offers, WhatsApp ordering and cash on delivery.", c1: "#5E8E3E", c2: "#07987F" },
+    { icon: "monitor", title: "Website development", text: "Business websites and landing pages on WordPress or custom builds, designed around one clear action.", c1: "#3D4FE8", c2: "#3D8EE8" },
+    { icon: "bot", title: "AI automations and agents", text: "WhatsApp and CRM automations, AI content systems and agentic workflows that handle repetitive marketing tasks.", c1: "#6A3DE8", c2: "#07987F" }
   ],
 
   process: [
@@ -637,6 +641,16 @@ window.SITE = {
     { cat: "video", video: "assets/video/tawa-chatkhara-reel.mp4", poster: "assets/video/tawa-chatkhara-reel.jpg", title: "Ramadan offer reel", client: "Tawa Chatkhara" }
   ],
 
+  /* Stores and websites. shots: image slugs (first is the cover). Empty shots shows a branded placeholder. */
+  websites: [
+    { name: "Organic Traveller", url: "https://organictraveller.store", platform: "Shopify store", text: "Skincare and hair perfume store with category shortcuts, bundles and a free-shipping promo bar.", shots: ["site-organic-traveller"] },
+    { name: "BookNow.pk", url: "https://booknowpk.myshopify.com/", platform: "Shopify store", text: "Islamic and Urdu bookstore with bilingual search, WhatsApp ordering and cash on delivery across Pakistan.", shots: ["site-booknow"] },
+    { name: "Sardar Shoes", url: "https://sardarshoe.com", platform: "Shopify store", text: "Footwear store for men, women and kids, with seasonal sale campaigns and WhatsApp support.", shots: ["site-sardar"] },
+    { name: "Furor Jeans", url: "https://furorjeans.com", platform: "Shopify store", text: "Western clothing, footwear and accessories store.", shots: [], c1: "#1B1B1B", c2: "#3D4FE8" },
+    { name: "Quantum Clinical Care", url: "https://quantumclinical.com.au", platform: "WordPress website", text: "Multi-clinic healthcare site with online booking, clinic pages and a telehealth service.", shots: ["site-quantum", "site-quantum-clinics"] },
+    { name: "Towy", url: "https://www.towy.au", platform: "Custom website", text: "Towing and roadside assistance website for an Australian car removal and towing brand.", shots: [], c1: "#1A1A1A", c2: "#E8A33D" }
+  ],
+
   strategy: [
     { icon: "search", title: "Google Ads system for a telehealth launch", client: "Quantum Telehealth", text: "PPC market research, keyword and CPC analysis, budget tiers, an AHPRA-compliant asset playbook, a landing page brief and a regional Meta targeting plan." },
     { icon: "chart", title: "Social audit and next-month strategy", client: "Quantum Telehealth", text: "April results across Facebook and Instagram, seven problems found, and a human-first May plan with hooks and offline-to-online tactics." },
@@ -661,6 +675,7 @@ window.SITE = {
     { icon: "target", title: "Paid media", items: ["Meta Ads Manager", "Google Ads (Search, PMax)", "TikTok Ads", "Retargeting", "Creative testing", "CBO and Target CPA"] },
     { icon: "funnel", title: "Funnels and data", items: ["WhatsApp automation", "Google Sheets CRM", "Website CRO", "Bundles and AOV", "Conversion tracking", "ROAS reporting"] },
     { icon: "play", title: "Content", items: ["Content strategy", "Short-form video", "UGC and creators", "Reel scripts", "Hooks", "Content calendars"] },
+    { icon: "bot", title: "Build and automate", items: ["Shopify", "WordPress and Elementor", "Landing pages", "WhatsApp automation", "AI content systems", "Agentic workflows"] },
     { icon: "users", title: "Leading and delivering", items: ["Team leadership", "Client management", "Sales closing", "Event management", "Brand books"] }
   ],
   education: [

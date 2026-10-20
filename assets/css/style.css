@@ -357,3 +357,24 @@ dialog.lb::backdrop{background:transparent}
 .cover.img.shot{background:#fff}
 .cover.img.shot img{object-fit:contain;object-position:center;padding:.6rem}
 @media (max-width:620px){.gallery{columns:2;column-gap:.65rem}.g-item{margin-bottom:.65rem;border-radius:14px}.g-item .meta{padding:.5rem .6rem .6rem}.g-item .meta b{font-size:.82rem}.g-badge{top:6px;right:6px;font-size:.66rem}}
+
+/* stores and websites */
+.site{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
+.site:hover{transform:translateY(-4px);border-color:var(--a1);box-shadow:var(--shadow)}
+.site-shot{display:block;padding:0;border:0;border-bottom:1px solid var(--line);background:var(--bg2);cursor:zoom-in;text-align:left;text-decoration:none;color:inherit;font:inherit}
+a.site-shot{cursor:pointer}
+.site-bar{display:flex;align-items:center;gap:6px;padding:.55rem .8rem;background:var(--bg);border-bottom:1px solid var(--line)}
+.site-bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.site-bar i:nth-child(1){background:#FF5F57}.site-bar i:nth-child(2){background:#FEBC2E}.site-bar i:nth-child(3){background:#28C840}
+.site-bar em{font:500 .74rem var(--mono);font-style:normal;color:var(--muted);margin-left:.5rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site-shot img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top}
+.site-ph{display:grid;place-content:center;gap:.2rem;text-align:center;aspect-ratio:16/9;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff}
+.site-ph b{font:800 1.5rem var(--display);letter-spacing:-.02em}
+.site-ph small{font:500 .8rem var(--mono);opacity:.8}
+.site .in{padding:1.1rem 1.3rem 1.3rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.site .in small{font:500 .78rem var(--mono);color:var(--a2)}
+.site .in h3{font-size:1.15rem}
+.site .in p{color:var(--muted);font-size:.95rem;margin:0;line-height:1.55}
+.site .visit{margin-top:auto;padding-top:.6rem;display:inline-flex;align-items:center;gap:.35rem;font:700 .9rem var(--display);text-decoration:none;color:var(--a1)}
+.site .visit svg.i{width:16px;height:16px}
+@media (prefers-reduced-motion:reduce){.site{transition:none}}

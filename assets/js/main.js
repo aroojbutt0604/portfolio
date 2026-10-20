@@ -28,6 +28,9 @@
     linkedin:'<rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/>',
     whatsapp:'<path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.3-1.8-1-1 .8a4 4 0 0 1-2.4-2.4l.8-1-1-1.8z"/>',
     layers:'<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>',
+    monitor:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+    bot:'<rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 4h6"/><circle cx="9" cy="14" r="1.2" fill="currentColor"/><circle cx="15" cy="14" r="1.2" fill="currentColor"/><path d="M2 13v3M22 13v3"/>',
+    ext:'<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
     pplay:'<path d="m8 5 11 7-11 7z" fill="currentColor"/>',
     x:'<path d="M18 6 6 18M6 6l12 12"/>',
     arrow:'<path d="M5 12h14M13 5l7 7-7 7"/>'
@@ -208,6 +211,23 @@
       .map(function(el){ return S.gallery[+el.getAttribute("data-i")]; })
       .filter(function(x){ return !x.slides; });
     openLightbox(visible.map(function(x){ return { src: full(x.src), title: x.title, sub: x.client }; }), visible.indexOf(g));
+  });
+
+  /* ---------- stores and websites ---------- */
+  var domain = function(u){ return u.replace(/^https?:\/\//, "").replace(/\/$/, ""); };
+  $("sitesGrid").innerHTML = S.websites.map(function(w, i){
+    var shot = w.shots.length
+      ? '<img src="' + thumb(w.shots[0]) + '" alt="' + esc(w.name) + ' homepage" loading="lazy">'
+      : '<span class="site-ph" style="--c1:' + (w.c1 || "#3D4FE8") + ";--c2:" + (w.c2 || "#07987F") + '"><b>' + esc(w.name) + "</b><small>" + esc(domain(w.url)) + "</small></span>";
+    var frame = '<span class="site-bar"><i></i><i></i><i></i><em>' + esc(domain(w.url)) + "</em></span>" + shot;
+    return '<article class="site rv">' +
+      (w.shots.length ? '<button type="button" class="site-shot" data-site="' + i + '" aria-label="View larger: ' + esc(w.name) + '">' + frame + "</button>" : '<a class="site-shot" href="' + esc(w.url) + '" target="_blank" rel="noopener" aria-label="Visit ' + esc(w.name) + '">' + frame + "</a>") +
+      '<div class="in"><small>' + esc(w.platform) + "</small><h3>" + esc(w.name) + "</h3><p>" + esc(w.text) + '</p><a class="visit" href="' + esc(w.url) + '" target="_blank" rel="noopener">Visit site ' + icon("ext") + "</a></div></article>";
+  }).join("");
+  $("sitesGrid").addEventListener("click", function(e){
+    var b = e.target.closest("[data-site]"); if (!b) return;
+    var w = S.websites[+b.getAttribute("data-site")];
+    openLightbox(w.shots.map(function(s){ return { src: full(s), title: w.name, sub: w.platform + " · " + domain(w.url) }; }), 0);
   });
 
   /* ---------- strategy, leadership, skills, education ---------- */
