@@ -44,7 +44,7 @@ window.SITE = {
     ["Agency", "Hello Success, Geelong (AU)"],
     ["Experience", "5 years"],
     ["Markets", "Pakistan, US, Australia"],
-    ["Industries", "E-com, healthcare, real estate, education, travel"]
+    ["Industries", "E-com, lead gen, healthcare, real estate, education, travel"]
   ],
 
   services: [
