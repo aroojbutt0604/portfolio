@@ -103,9 +103,9 @@
     return '<span class="cover"><span>' + icon(c.icon) + "</span></span>";
   };
   $("cases").innerHTML = S.cases.map(function(c, i){
-    var stats = c.stats.slice(0, 2).map(function(s){ return "<div><b>" + esc(s[0]) + "</b><span>" + esc(s[1]) + "</span></div>"; }).join("");
+    var stats = (c.stats || []).slice(0, 2).map(function(s){ return "<div><b>" + esc(s[0]) + "</b><span>" + esc(s[1]) + "</span></div>"; }).join("");
     return '<button class="card rv" type="button" data-case="' + i + '" data-tags="' + c.tags.join(" ") + '" style="--c1:' + c.c1 + ";--c2:" + c.c2 + '">' + coverHtml(c) +
-      '<span class="in"><small>' + esc(c.client) + "</small><h3>" + esc(c.title) + "</h3><p>" + esc(c.summary) + '</p><span class="stat-line">' + stats + '</span><span class="more">Read the case study →</span></span></button>';
+      '<span class="in"><small>' + esc(c.client) + "</small><h3>" + esc(c.title) + "</h3><p>" + esc(c.summary) + '</p><span class="stat-line">' + stats + '</span><span class="more">' + (c.problem ? "Read the case study" : "See the work") + ' →</span></span></button>';
   }).join("");
 
   var bindFilters = function(boxId, filters, onPick){
@@ -139,11 +139,12 @@
     $("caseBody").innerHTML = head +
       '<button class="m-x" type="button" aria-label="Close" data-close>' + icon("x") + "</button>" +
       '<div class="m-body"><small>' + esc(c.client) + '</small><h2 id="mTitle">' + esc(c.title) + "</h2>" +
-      '<div class="m-stats">' + c.stats.map(function(s){ return "<div><b>" + esc(s[0]) + "</b><span>" + esc(s[1]) + "</span></div>"; }).join("") + "</div>" +
-      "<h4>The problem</h4><p>" + esc(c.problem) + "</p>" +
-      '<ol class="flow">' + c.flow.map(function(f){ return "<li><b>" + esc(f[0]) + "</b>" + esc(f[1]) + "</li>"; }).join("") + "</ol>" +
-      '<h4>What I did</h4><ul class="pts">' + c.actions.map(function(a){ return "<li>" + esc(a) + "</li>"; }).join("") + "</ul>" +
-      '<h4>The result</h4><p class="result-box">' + esc(c.result) + "</p>" +
+      (c.stats ? '<div class="m-stats">' + c.stats.map(function(s){ return "<div><b>" + esc(s[0]) + "</b><span>" + esc(s[1]) + "</span></div>"; }).join("") + "</div>" : "") +
+      (c.problem ? "<h4>The problem</h4><p>" + esc(c.problem) + "</p>" : "") +
+      (c.brief ? "<h4>The brief</h4><p>" + esc(c.brief) + "</p>" : "") +
+      (c.flow ? '<ol class="flow">' + c.flow.map(function(f){ return "<li><b>" + esc(f[0]) + "</b>" + esc(f[1]) + "</li>"; }).join("") + "</ol>" : "") +
+      "<h4>" + (c.problem ? "What I did" : "What I made") + '</h4><ul class="pts">' + c.actions.map(function(a){ return "<li>" + esc(a) + "</li>"; }).join("") + "</ul>" +
+      (c.result ? '<h4>The result</h4><p class="result-box">' + esc(c.result) + "</p>" : "") +
       (media ? '<h4>The work</h4><div class="m-media">' + media + "</div>" : "") +
       '<div class="m-links"><a class="btn primary sm" href="#contact" data-close>Talk about a similar project</a></div></div>';
     $("caseBody").querySelectorAll("[data-mi]").forEach(function(b){

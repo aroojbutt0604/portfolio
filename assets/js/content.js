@@ -143,7 +143,7 @@ window.SITE = {
 
   /* Case studies. "filters" drive the chips above the grid. */
   caseFilters: [
-    ["all", "All"], ["meta", "Meta Ads"], ["google", "Google Ads"], ["social", "Social and brand"], ["health", "Healthcare"], ["ecom", "E-commerce"]
+    ["all", "All"], ["meta", "Meta Ads"], ["google", "Google Ads"], ["social", "Social and brand"], ["brand", "Branding"], ["health", "Healthcare"], ["ecom", "E-commerce"]
   ],
   cases: [
     {
@@ -383,7 +383,7 @@ window.SITE = {
       ]
     },
     {
-      id: "education-drive", tags: ["social"], c1: "#0F4D3A", c2: "#07987F", icon: "book",
+      id: "education-drive", tags: ["social", "brand"], c1: "#0F4D3A", c2: "#07987F", icon: "book",
       client: "Education Drive Consultants, Lahore · via Hello Success",
       title: "A brand identity and landing page for a study-abroad consultancy",
       summary: "From logo system to landing page to a consistent Instagram feed.",
@@ -405,7 +405,136 @@ window.SITE = {
       ]
     },
     {
-      id: "web-vision", tags: ["social"], c1: "#6A3DE8", c2: "#07987F", icon: "spark",
+      id: "hello-success-brand", tags: ["social", "brand"], c1: "#1F4E9E", c2: "#3D8EE8", icon: "spark",
+      client: "Hello Success, Geelong · agency brand",
+      title: "Repositioning a boutique agency as premium",
+      summary: "The agency's own Instagram and a run of lead-generating carousels.",
+      cover: "hs-ig-grid",
+      brief: "Part of the agency's 90-day scale-up strategy: move Hello Success upmarket, speak to health sector clients and give the team LinkedIn and Instagram assets that bring in leads.",
+      actions: [
+        "Designed a clean, light-blue Instagram grid around performance marketing, Meta Ads, services and growth messaging",
+        "Wrote and designed carousels on funnel leaks, AI and SEO, agency reporting and visibility, each ending in a clear call to action",
+        "Turned a car removal Google Ads result ($27.84 per lead) into a case study carousel",
+        "Built an AI-assisted system for producing branded social graphics quickly"
+      ],
+      flow: [["Position", "Premium, health-focused"], ["Design", "Grid system"], ["Educate", "Carousels"], ["Convert", "Audit CTA"]],
+      media: [
+        { src: "hs-ig-grid", alt: "Hello Success Instagram grid" },
+        { src: "hs-funnel-1", alt: "Carousel: Your funnel has holes" },
+        { src: "hs-aiseo-1", alt: "Carousel: AI didn't kill SEO" },
+        { src: "hs-agency-1", alt: "Carousel: what agencies promise" },
+        { src: "hs-invisible-1", alt: "Carousel: you're not losing to better businesses" }
+      ]
+    },
+    {
+      id: "numl", tags: ["social", "brand"], c1: "#14284B", c2: "#3D4FE8", icon: "book",
+      client: "NUML Lahore · university",
+      title: "An Instagram redesign for a public university",
+      summary: "From a crowded feed of flyers to a calm, editorial grid.",
+      cover: "numl-grid-after",
+      brief: "The university's current feed mixes text-heavy flyers, event photos and announcements in different styles, so nothing stands out and the brand feels inconsistent.",
+      actions: [
+        "Designed a consistent editorial grid in navy and cream with one type system",
+        "Gave each post type its own template: campus stories, people, events, academic news and achievements",
+        "Organised highlights into Academics, Our People, Events, Campus Life, International, Achievements and Student Stories",
+        "Kept the content real: students, faculty, events and campus photography"
+      ],
+      flow: [["Audit", "Current feed"], ["System", "Palette + type"], ["Templates", "Per post type"], ["Highlights", "Clear navigation"]],
+      media: [
+        { src: "numl-grid-after", alt: "Redesigned NUML Lahore Instagram grid" },
+        { src: "numl-grid-before", alt: "Current NUML Lahore Instagram feed" }
+      ]
+    },
+    {
+      id: "aysh-care", tags: ["brand", "health"], c1: "#061E35", c2: "#5B8391", icon: "heart",
+      client: "Aysh Care · healthcare brand",
+      title: "Brand identity for a healthcare provider",
+      summary: "A logo, icon and palette that work on scrubs, signage and screens.",
+      cover: "aysh-care-board",
+      brief: "A healthcare brand needed an identity that feels caring and modern, and stays legible from an app icon up to building signage.",
+      actions: [
+        "Designed the wordmark and a figure icon that doubles as the letter Y",
+        "Built a deep navy, teal and mint palette",
+        "Applied it to app icons, uniforms, outdoor signage and a digital screen ad"
+      ],
+      media: [{ src: "aysh-care-board", alt: "Aysh Care brand identity board" }]
+    },
+    {
+      id: "city-care", tags: ["health"], c1: "#0E4C92", c2: "#07987F", icon: "heart",
+      client: "City Care Hospital · outdoor concept",
+      title: "An outdoor standee for a hospital entrance",
+      summary: "One glance: who they are, why trust them and how to book.",
+      cover: "hospital-standee",
+      brief: "Outdoor creative for a hospital entrance, where people walk past in seconds.",
+      actions: [
+        "Led with a short promise, \"Your health, our priority\", above a doctor and patient photo",
+        "Added four trust icons: expert doctors, advanced facilities, patient care and trusted service",
+        "Put the appointment line in a high-contrast band at eye level"
+      ],
+      media: [{ src: "hospital-standee", alt: "City Care Hospital outdoor standee" }]
+    },
+    {
+      id: "towy", tags: ["meta"], c1: "#1A1A1A", c2: "#E8A33D", icon: "phone",
+      client: "Towy, car removal · Australia",
+      title: "A Meta ad series for every reason to sell a car",
+      summary: "Nine creatives, each written for a different situation.",
+      cover: "towy-top-cash",
+      brief: "A car removal business in Australia needed ads that reach people at the moment they decide to get rid of a car, not just a generic \"we buy cars\" message.",
+      actions: [
+        "Built situational angles: repairs that cost more than the car, moving house, a loved one's estate and reclaiming the driveway",
+        "Added benefit-led ads: paid within the hour, free towing and a comparison against private sale",
+        "Ran an eco angle (zero landfill) for a different audience",
+        "Kept one brand system across all nine: yellow, black, the tow truck and the phone number"
+      ],
+      flow: [["Situations", "Why people sell"], ["Angles", "One per situation"], ["Creatives", "9 ads"], ["Test", "Find winners"]],
+      media: [
+        { src: "towy-top-cash", alt: "We buy cars. We tow. You get top cash." },
+        { src: "towy-paid-1hr", alt: "Get paid in 1 hour" },
+        { src: "towy-repairs", alt: "Quoted $2,000+ for repairs? Sell it as-is" },
+        { src: "towy-estate", alt: "Handling a loved one's estate?" },
+        { src: "towy-moving", alt: "Moving house?" },
+        { src: "towy-zero-landfill", alt: "Your car, zero landfill" }
+      ]
+    },
+    {
+      id: "cafe-noir", tags: ["brand", "social"], c1: "#3B2F2A", c2: "#8A7A6E", icon: "spark",
+      client: "Cafe Noir · coffee brand",
+      title: "Visual direction and social for a coffee brand",
+      summary: "A quiet, minimal identity carried into two Instagram sets.",
+      cover: "cafe-noir-board",
+      brief: "A modern coffee brand that \"speaks in whispers\": bold in identity, minimal in expression, for people who appreciate quality and calm.",
+      actions: [
+        "Set the visual direction: colour palette, typography, brand icons and organic pattern elements",
+        "Defined photography direction and brand tone",
+        "Designed two Instagram grid sets with menu, offer and lifestyle posts",
+        "Showed the system on cups, packaging, signage and bags"
+      ],
+      flow: [["Direction", "Palette + type"], ["Photography", "Mood"], ["Social", "Two grid sets"], ["Applications", "Packaging, signage"]],
+      media: [
+        { src: "cafe-noir-board", alt: "Cafe Noir visual direction" },
+        { src: "cafe-noir-grid", alt: "Cafe Noir Instagram grid" },
+        { src: "cafe-noir-grid-2", alt: "Cafe Noir Instagram grid, set 2" }
+      ]
+    },
+    {
+      id: "navory", tags: ["brand", "health"], c1: "#5E8C6A", c2: "#2E5E8C", icon: "heart",
+      client: "Navory · dental clinic",
+      title: "Brand identity and Instagram for a dental clinic",
+      summary: "Soft greens and blues for a clinic that wants to feel calm.",
+      cover: "navory-board",
+      brief: "A specialised dental clinic needed a gentle, trustworthy identity and a social feed to match, in Spanish.",
+      actions: [
+        "Designed the logo and a green, cream and blue palette",
+        "Applied it to uniforms, the clinic interior, a desk calendar and business cards",
+        "Designed a 3x3 Instagram grid in Spanish"
+      ],
+      media: [
+        { src: "navory-board", alt: "Navory brand identity board" },
+        { src: "navory-grid", alt: "Navory Instagram grid" }
+      ]
+    },
+    {
+      id: "web-vision", tags: ["social", "brand"], c1: "#6A3DE8", c2: "#07987F", icon: "spark",
       client: "Web Vision · agency brand",
       title: "Positioning an agency as 360, not traditional",
       summary: "Brand book to execution, built on the team's own culture.",
