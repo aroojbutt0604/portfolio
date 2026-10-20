@@ -208,6 +208,7 @@ window.SITE = {
       client: "BAC, study-abroad consultancy · Advortex",
       title: "Making every WhatsApp lead trackable",
       summary: "Plenty of leads came in, but nobody could say which ones confirmed or where they came from.",
+      cover: "bac-grid-1",
       stats: [["500", "conversations"], ["1.5 wks", "to get there"], ["PKR 15-16", "per conversation"]],
       problem: "The client couldn't tell which leads actually confirmed, or whether they came from Meta or organic, so the ad spend had no measurable return.",
       actions: [
@@ -216,7 +217,11 @@ window.SITE = {
         "Made every funnel stage visible, with every lead passing through one tracked system"
       ],
       result: "500 conversations in a week and a half, and for the first time clear data on how many clients came in and what return the ads delivered.",
-      flow: [["Click", "Meta ad"], ["Chat", "Automated WhatsApp"], ["Track", "Every stage"], ["Report", "ROAS and ROI"]]
+      flow: [["Click", "Meta ad"], ["Chat", "Automated WhatsApp"], ["Track", "Every stage"], ["Report", "ROAS and ROI"]],
+      media: [
+        { src: "bac-grid-1", alt: "BAC Education Consultancy Instagram feed" },
+        { src: "bac-grid-2", alt: "BAC Education Consultancy Instagram profile and highlights" }
+      ]
     },
     {
       id: "quantum", tags: ["health", "social", "meta"], c1: "#3A1F6F", c2: "#6A3DE8", icon: "heart",
@@ -240,6 +245,8 @@ window.SITE = {
         { src: "quantum-now-open", alt: "Now open poster with real clinic photos" },
         { src: "lethbridge-1", alt: "Lethbridge launch carousel, slide 1" },
         { src: "quantum-ig-grid", alt: "Quantum Telehealth Instagram grid" },
+        { src: "quantum-ig-live", alt: "Quantum Telehealth live Instagram feed" },
+        { src: "lethbridge-grid", alt: "Quantum Medical Centre Lethbridge Instagram grid" },
         { video: "assets/video/quantum-clinic-walkthrough.mp4", poster: "assets/video/quantum-clinic-walkthrough.jpg", alt: "Clinic walkthrough video" }
       ]
     },
@@ -248,6 +255,7 @@ window.SITE = {
       client: "Habit Herbal · Advortex",
       title: "From a restricted ad account to steady orders",
       summary: "Meta flagged the website as health-related and shut the ads down.",
+      cover: "habit-herbal-grid-1",
       stats: [["50+", "orders"], ["~1.5 wks", "after relaunch"], ["PKR 250", "per website purchase"]],
       problem: "Meta restricted the account because the website was flagged as health-related, so the brand couldn't advertise at all.",
       actions: [
@@ -257,14 +265,19 @@ window.SITE = {
         "Scaled the winning formats"
       ],
       result: "50+ orders in about a week and a half at PKR 250 per website purchase.",
-      flow: [["Unblock", "Account setup"], ["CRO", "Website"], ["Test", "5 creative formats"], ["Scale", "Winners"]]
+      flow: [["Unblock", "Account setup"], ["CRO", "Website"], ["Test", "5 creative formats"], ["Scale", "Winners"]],
+      media: [
+        { src: "habit-herbal-grid-1", alt: "Habit Herbal Instagram feed: UGC, product and testimonial posts" },
+        { src: "habit-herbal-grid-2", alt: "Habit Herbal Instagram feed: creator videos and product posts" }
+      ]
     },
     {
       id: "femine", tags: ["ecom", "meta"], c1: "#E83D8A", c2: "#E8803D", icon: "gift",
       client: "Femine Beauty · freelance",
       title: "Bundles and an 11/11 sale for a 500k-follower brand",
       summary: "Raising order value so every Meta result cost less.",
-      stats: [["~800", "orders in 2 months"], ["500k", "followers"], ["4", "bundle types"]],
+      cover: "femine-reels-2",
+      stats: [["~800", "orders in 2 months"], ["1.2M", "views on the top reel"], ["500k", "followers"], ["4", "bundle types"]],
       problem: "The brand needed more sales and a higher order value from an already large audience.",
       actions: [
         "Built hair, skincare, lip and kit-style bundles to raise average order value",
@@ -273,7 +286,11 @@ window.SITE = {
         "Worked on retention to keep existing customers buying"
       ],
       result: "About 800 orders over 2 months. Higher order value lowered the cost per result on Meta.",
-      flow: [["Bundle", "Raise AOV"], ["Creators", "UGC + influencers"], ["Sale", "11/11"], ["Retain", "Repeat buyers"]]
+      flow: [["Bundle", "Raise AOV"], ["Creators", "UGC + influencers"], ["Sale", "11/11"], ["Retain", "Repeat buyers"]],
+      media: [
+        { src: "femine-reels-2", alt: "Femine Beauty reels, including a 1.2M-view reel" },
+        { src: "femine-reels-1", alt: "Femine Beauty reels: customer reviews and UGC" }
+      ]
     },
     {
       id: "skin-chemistry", tags: ["ecom", "meta"], c1: "#6A3DE8", c2: "#E83D8A", icon: "refresh",
@@ -296,7 +313,8 @@ window.SITE = {
       client: "Maqsood Developers, Meadow City · freelance",
       title: "A real estate revamp and a 2,000-person launch",
       summary: "UGC and leadership vision content, then a launch event that sold.",
-      stats: [["2,000+", "event attendees"], ["Senior", "manager and operations role"]],
+      cover: "meadow-reels",
+      stats: [["2,000+", "event attendees"], ["232K", "views on the top reel"], ["100K+", "views on most reels shown"]],
       problem: "The housing society needed a social presence that people trusted, and a launch for its new block.",
       actions: [
         "Led a total social media revamp for Meadow City",
@@ -305,7 +323,8 @@ window.SITE = {
         "Managed operations alongside social media"
       ],
       result: "2,000+ attendees at the launch, strong bookings and better customer retention.",
-      flow: [["Revamp", "Social"], ["UGC", "Residents"], ["Leaders", "Vision content"], ["Launch", "2,000+ event"]]
+      flow: [["Revamp", "Social"], ["UGC", "Residents"], ["Leaders", "Vision content"], ["Launch", "2,000+ event"]],
+      media: [{ src: "meadow-reels", alt: "Lahore Meadows City reels with 88.9K to 232K views" }]
     },
     {
       id: "tawa-chatkhara", tags: ["social"], c1: "#E8803D", c2: "#E83D8A", icon: "users",
@@ -364,6 +383,28 @@ window.SITE = {
       ]
     },
     {
+      id: "education-drive", tags: ["social"], c1: "#0F4D3A", c2: "#07987F", icon: "book",
+      client: "Education Drive Consultants, Lahore · via Hello Success",
+      title: "A brand identity and landing page for a study-abroad consultancy",
+      summary: "From logo system to landing page to a consistent Instagram feed.",
+      cover: "edu-drive-brand",
+      stats: [["3", "deliverables: brand guide, landing page, social"]],
+      problem: "The consultancy needed to look as premium and trustworthy as the universities it sends students to, across every touchpoint.",
+      actions: [
+        "Built a brand identity guide: logo variations, colour palette, typography, brand elements and imagery style",
+        "Designed a landing page around destinations, a simple step-by-step process and student testimonials",
+        "Created a social template system for intakes, graduations, destinations and team posts"
+      ],
+      result: "One consistent identity across the website and Instagram, ready for the team to use on every new post.",
+      flow: [["Identity", "Brand guide"], ["Website", "Landing page"], ["Social", "Templates"], ["Launch", "Live feed"]],
+      media: [
+        { src: "edu-drive-brand", alt: "Education Drive Consultants brand identity guide" },
+        { src: "edu-drive-landing", alt: "Education Drive landing page design" },
+        { src: "edu-drive-grid", alt: "Education Drive Instagram grid design" },
+        { src: "edu-drive-ig-live", alt: "Education Drive live Instagram feed" }
+      ]
+    },
+    {
       id: "web-vision", tags: ["social"], c1: "#6A3DE8", c2: "#07987F", icon: "spark",
       client: "Web Vision · agency brand",
       title: "Positioning an agency as 360, not traditional",
@@ -417,17 +458,26 @@ window.SITE = {
     { cat: "ads", src: "cs-course-poster", title: "ACEM OSCE course poster", client: "Clinicalscope" },
     { cat: "ads", src: "cs-course-post-v2", title: "The right diagnosis still has to land", client: "Clinicalscope" },
     { cat: "ads", src: "yoski-halloween", title: "Let your pets steal the show", client: "Yoski" },
+    { cat: "ads", src: "hospital-standee", title: "Hospital outdoor standee", client: "Healthcare outdoor concept" },
     { cat: "ads", src: "awk-nursing", title: "Nursing assistant admissions (Urdu)", client: "AWK Institute, Edu Hub" },
 
     { cat: "branding", src: "quantum-brand-board", title: "Brand identity", client: "Quantum Medical Centre" },
     { cat: "branding", src: "veyora-social-mockup", title: "Social media, built to be seen", client: "Veyora" },
-    { cat: "branding", src: "cafe-noir-board", title: "Brand identity", client: "Cafe Noir" },
+    { cat: "branding", src: "cafe-noir-board", title: "Visual direction", client: "Cafe Noir" },
+    { cat: "branding", src: "edu-drive-brand", title: "Brand identity guide", client: "Education Drive Consultants" },
+    { cat: "branding", src: "edu-drive-landing", title: "Landing page", client: "Education Drive Consultants" },
+    { cat: "branding", src: "aysh-care-board", title: "Brand identity", client: "Aysh Care" },
     { cat: "branding", src: "haven-board", title: "Brand identity", client: "Haven cafe" },
     { cat: "branding", src: "navory-board", title: "Brand identity", client: "Navory dental" },
     { cat: "branding", src: "harmony-health-logo", title: "Logo", client: "Harmony Health" },
 
     { cat: "social", src: "quantum-ig-grid", title: "Instagram grid", client: "Quantum Telehealth" },
+    { cat: "social", src: "hs-ig-grid", title: "Instagram grid", client: "Hello Success" },
+    { cat: "social", src: "lethbridge-grid", title: "Instagram grid", client: "Quantum Medical Centre" },
+    { cat: "social", src: "edu-drive-grid", title: "Instagram grid", client: "Education Drive Consultants" },
+    { cat: "carousel", title: "Instagram grid redesign: new vs current", client: "NUML Lahore", square: false, slides: ["numl-grid-after", "numl-grid-before"] },
     { cat: "social", src: "cafe-noir-grid", title: "Instagram grid", client: "Cafe Noir" },
+    { cat: "social", src: "cafe-noir-grid-2", title: "Instagram grid, set 2", client: "Cafe Noir" },
     { cat: "social", src: "navory-grid", title: "Instagram grid", client: "Navory dental" },
     { cat: "social", src: "webvision-grid", title: "Instagram grid", client: "Web Vision" },
     { cat: "social", src: "quantum-now-open", title: "Now open", client: "Quantum Medical Centre" },
