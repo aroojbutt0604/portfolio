@@ -643,7 +643,6 @@ window.SITE = {
 
   /* Stores and websites. shots: image slugs (first is the cover). Empty shots shows a branded placeholder. */
   websites: [
-    { name: "Organic Traveller", url: "https://organictraveller.store", platform: "Shopify store", text: "Skincare and hair perfume store with category shortcuts, bundles and a free-shipping promo bar.", shots: ["site-organic-traveller"] },
     { name: "BookNow.pk", url: "https://booknowpk.myshopify.com/", platform: "Shopify store", text: "Islamic and Urdu bookstore with bilingual search, WhatsApp ordering and cash on delivery across Pakistan.", shots: ["site-booknow"] },
     { name: "Sardar Shoes", url: "https://sardarshoe.com", platform: "Shopify store", text: "Footwear store for men, women and kids, with seasonal sale campaigns and WhatsApp support.", shots: ["site-sardar"] },
     { name: "Furor Jeans", url: "https://furorjeans.com", platform: "Shopify store", text: "Western clothing, footwear and accessories store.", shots: [], c1: "#1B1B1B", c2: "#3D4FE8" },
