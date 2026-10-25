@@ -16,16 +16,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=8">
+<link rel="stylesheet" href="assets/css/style.css?v=10">
 </head>
 <body>
 <a class="skip" href="#about">Skip to content</a>
 <header class="top">
   <div class="wrap nav">
     <div class="nav-left">
-      <button class="icon-btn toc-btn" id="tocBtn" type="button" aria-controls="toc" aria-expanded="false" aria-label="Show contents"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+      <button class="icon-btn toc-btn" id="tocBtn" type="button" aria-controls="toc" aria-expanded="false" aria-label="All sections"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
       <a class="logo" href="#top"><i>AB</i><span>Arooj Butt</span></a>
     </div>
+    <nav aria-label="Primary"><ul id="headNav">
+      <li><a href="#about" data-group="about how-i-work">About</a></li><li><a href="#experience" data-group="experience">Experience</a></li><li><a href="#work" data-group="work results">Case studies</a></li><li><a href="#websites" data-group="websites">Websites</a></li><li><a href="#gallery" data-group="gallery strategy">Creative</a></li><li><a href="#contact" data-group="leadership skills education contact">Contact</a></li>
+    </ul></nav>
     <div class="tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
       <a class="btn primary sm" href="#contact">Hire me</a>
@@ -38,6 +41,7 @@
   <nav><ol id="tocList"></ol></nav>
 </aside>
 <div class="toc-backdrop" id="tocBackdrop" hidden></div>
+<nav class="rail" id="rail" aria-label="Page sections"></nav>
 
 <main id="top">
 <section class="hero">
@@ -68,18 +72,13 @@
     <div>
       <div class="head"><span class="eyebrow">About</span><h2>Growth that shows up in the numbers</h2></div>
       <div id="aboutText"></div>
+      <h3 class="svc-head" id="services">What I do</h3>
+      <div class="svc-list" id="svcList"></div>
     </div>
     <div>
       <div class="portrait"><img id="portrait" alt="Portrait of Arooj Butt" width="560" height="560" loading="lazy"></div>
       <dl class="facts" id="facts"></dl>
     </div>
-  </div>
-</section>
-
-<section class="s" id="services" style="padding-top:1rem">
-  <div class="wrap">
-    <div class="head"><span class="eyebrow">Services</span><h2>What I do</h2><p>Paid media, the funnel and content behind it, and the stores, websites and automations it all runs on.</p></div>
-    <div class="grid svc" id="services-grid"></div>
   </div>
 </section>
 
@@ -188,7 +187,7 @@
 </dialog>
 
 <noscript><p style="text-align:center;padding:2rem">This portfolio needs JavaScript to show its case studies and gallery. Email <a href="mailto:aroojbutt0604@gmail.com">aroojbutt0604@gmail.com</a>.</p></noscript>
-<script src="assets/js/content.js?v=8"></script>
-<script src="assets/js/main.js?v=8"></script>
+<script src="assets/js/content.js?v=10"></script>
+<script src="assets/js/main.js?v=10"></script>
 </body>
 </html>

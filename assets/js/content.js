@@ -48,15 +48,15 @@ window.SITE = {
   ],
 
   services: [
-    { icon: "target", title: "Meta Ads", text: "Lead generation, e-commerce sales and awareness, with creative testing and a funnel fix behind every campaign.", c1: "#3D4FE8", c2: "#6A3DE8" },
-    { icon: "search", title: "Google Ads", text: "Search and Performance Max for local service businesses where the goal is calls and booked jobs.", c1: "#6A3DE8", c2: "#E83D8A" },
-    { icon: "funnel", title: "Funnels and CRO", text: "Website conversion, bundles that raise order value, WhatsApp automation and Google Sheets CRM tracking.", c1: "#E83D8A", c2: "#E8803D" },
-    { icon: "play", title: "Social and content", text: "Content calendars, Reel scripts, UGC programmes and creator communities built around the brand.", c1: "#07987F", c2: "#3D8EE8" },
-    { icon: "spark", title: "Brand building", text: "Brand books, identity guides and campaigns beyond digital: events, outdoor, flyers and PR.", c1: "#3D8EE8", c2: "#3D4FE8" },
-    { icon: "chart", title: "Strategy and audits", text: "Account audits, competitor research and launch plans with a clear 90-day roadmap.", c1: "#E8803D", c2: "#07987F" },
-    { icon: "bag", title: "Shopify stores", text: "Stores built to sell: product and collection setup, bundles, offers, WhatsApp ordering and cash on delivery.", c1: "#5E8E3E", c2: "#07987F" },
-    { icon: "monitor", title: "Website development", text: "Business websites and landing pages on WordPress or custom builds, designed around one clear action.", c1: "#3D4FE8", c2: "#3D8EE8" },
-    { icon: "bot", title: "AI automations and agents", text: "WhatsApp and CRM automations, AI content systems and agentic workflows that handle repetitive marketing tasks.", c1: "#6A3DE8", c2: "#07987F" }
+    { ico: "meta", color: "#0866FF", short: "Lead gen, sales and awareness with creative testing.", icon: "target", title: "Meta Ads", text: "Lead generation, e-commerce sales and awareness, with creative testing and a funnel fix behind every campaign.", c1: "#3D4FE8", c2: "#6A3DE8" },
+    { ico: "googleads", color: "#4285F4", short: "Search and PMax for calls and booked jobs.", icon: "search", title: "Google Ads", text: "Search and Performance Max for local service businesses where the goal is calls and booked jobs.", c1: "#6A3DE8", c2: "#E83D8A" },
+    { ico: "funnel", color: "#E83D8A", short: "Landing pages, bundles, WhatsApp and CRM tracking.", icon: "funnel", title: "Funnels and CRO", text: "Website conversion, bundles that raise order value, WhatsApp automation and Google Sheets CRM tracking.", c1: "#E83D8A", c2: "#E8803D" },
+    { ico: "instagram", color: "#E4405F", short: "Calendars, Reel scripts, UGC and creator communities.", icon: "play", title: "Social and content", text: "Content calendars, Reel scripts, UGC programmes and creator communities built around the brand.", c1: "#07987F", c2: "#3D8EE8" },
+    { ico: "palette", color: "#8A5CF6", short: "Brand books, identity and campaigns beyond digital.", icon: "spark", title: "Brand building", text: "Brand books, identity guides and campaigns beyond digital: events, outdoor, flyers and PR.", c1: "#3D8EE8", c2: "#3D4FE8" },
+    { ico: "chart", color: "#07987F", short: "Account audits, competitor research, 90-day plans.", icon: "chart", title: "Strategy and audits", text: "Account audits, competitor research and launch plans with a clear 90-day roadmap.", c1: "#E8803D", c2: "#07987F" },
+    { ico: "shopify", color: "#7AB55C", short: "Stores built to sell, with offers and COD.", icon: "bag", title: "Shopify stores", text: "Stores built to sell: product and collection setup, bundles, offers, WhatsApp ordering and cash on delivery.", c1: "#5E8E3E", c2: "#07987F" },
+    { ico: "code", color: "#3D8EE8", short: "Websites and landing pages built around one action.", icon: "monitor", title: "Website development", text: "Business websites and landing pages on WordPress or custom builds, designed around one clear action.", c1: "#3D4FE8", c2: "#3D8EE8" },
+    { ico: "bot", color: "#A855F7", short: "Automations and agentic workflows for repetitive work.", icon: "bot", title: "AI automations and agents", text: "WhatsApp and CRM automations, AI content systems and agentic workflows that handle repetitive marketing tasks.", c1: "#6A3DE8", c2: "#07987F" }
   ],
 
   process: [
@@ -145,7 +145,9 @@ window.SITE = {
     }
   ],
 
-  /* Case studies. "filters" drive the chips above the grid. */
+  /* Case studies. "filters" drive the chips above the grid.
+     caseOrder sets the display order (strongest paid-media proof first); ids not listed go last. */
+  caseOrder: ["car-removal-audit", "visa-funnel", "towing-leadgen", "quantum", "femine", "habit-herbal", "bac-whatsapp", "skin-chemistry", "towy", "meadow-city", "tawa-chatkhara", "clinicalscope", "education-drive", "hello-success-brand", "national-hospital", "web-vision", "cafe-noir", "aysh-care", "navory", "numl", "city-care"],
   caseFilters: [
     ["all", "All"], ["meta", "Meta Ads"], ["google", "Google Ads"], ["social", "Social and brand"], ["brand", "Branding"], ["health", "Healthcare"], ["ecom", "E-commerce"]
   ],
