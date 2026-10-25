@@ -105,8 +105,6 @@ PAGES = {
             section("how-i-work", "How I work", head("Process", "How I work",
                     "The same five steps behind every account, refined across 20+ brands.") + '\n    <ol class="flow" id="process"></ol>', cls="s process"),
             section("experience", "Experience", head("Experience", "Where I've done it") + '\n    <ol class="tl" id="timeline"></ol>'),
-            section("leadership", "Leadership", head("Leadership", "Leading teams and events") +
-                    '\n    <div class="lead-grid" id="leadFeature"></div>\n    <div class="campus" id="campus"></div>'),
             section("featured", "Selected work", head("Selected work", "Results that speak first",
                     "Three of the strongest case studies and two dashboards straight from the ad accounts. The full portfolio is on the Work page.") +
                     '\n    <div class="grid" id="cases" data-limit="3"></div>\n    <div class="results featured-proof" id="resultsWall" data-limit="2"></div>\n' +
@@ -117,6 +115,8 @@ PAGES = {
             section("skills", "Skills", head("Toolkit", "Skills") + '\n    <div class="skills" id="skillsGrid"></div>'),
             section("education", "Education", head("", "Education and certifications") +
                     '\n    <div class="two"><div id="edu"></div><div id="certs"></div></div>'),
+            section("leadership", "Leadership", head("Leadership", "Leading teams and events") +
+                    '\n    <div class="lead-grid" id="leadFeature"></div>\n    <div class="campus" id="campus"></div>'),
             CONTACT,
         ],
     },
