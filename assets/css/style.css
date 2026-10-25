@@ -511,3 +511,19 @@ header.top{min-height:69px}
 .featured-proof{margin-top:1.4rem}
 #featured .more-wrap{margin-top:1.6rem}
 .work-intro{padding-bottom:1rem}
+
+/* header v2: segmented page switch + section labels */
+header.top .nav{gap:.9rem}
+.pages{display:flex;gap:2px;margin:0 0 0 .4rem;padding:3px;border-radius:999px;background:var(--bg2);border:1px solid var(--line)}
+.pages a{padding:.38rem .95rem;font:600 .88rem var(--display);color:var(--muted);border-radius:999px;text-decoration:none;transition:background .2s,color .2s}
+.pages a:hover{color:var(--ink);background:transparent}
+.pages a[aria-current="page"]{background:var(--grad);color:var(--on-grad);box-shadow:none}
+.sec-links{display:none;align-items:center;gap:.15rem;margin-right:auto;padding-left:.9rem;border-left:1px solid var(--line)}
+.sec-links a{position:relative;display:inline-flex;align-items:center;gap:.4rem;padding:.36rem .75rem;border-radius:999px;border:1px solid transparent;color:var(--muted);text-decoration:none;font:500 .86rem var(--body);white-space:nowrap;transition:color .2s,background .2s,border-color .2s}
+.sec-links a::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .2s,box-shadow .2s}
+.sec-links a:hover{color:var(--ink);background:var(--card)}
+.sec-links a.active{color:var(--ink);font-weight:700;background:var(--bg2);border-color:var(--line);box-shadow:var(--shadow)}
+.sec-links a.active::before{background:var(--a2);box-shadow:0 0 0 3px var(--mark)}
+.tools{margin-left:auto}
+@media (min-width:1100px){.sec-links{display:flex}.tools{margin-left:0}}
+@media (max-width:480px){.pages{margin-left:.2rem}.pages a{padding:.34rem .7rem}}

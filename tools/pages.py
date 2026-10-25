@@ -8,7 +8,7 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "15"
+ASSET_VERSION = "16"
 
 NAV = [("index.html", "Home"), ("work.html", "Work")]
 
@@ -96,11 +96,11 @@ CONTACT = '''<section class="s" id="contact" data-label="Contact" style="padding
 
 PAGES = {
     "index.html": {
+        "nav": [("about", "About"), ("how-i-work", "How I work"), ("experience", "Experience"), ("featured", "Selected work"), ("skills", "Skills")],
         "title": "Arooj Butt | Growth Marketing and Paid Advertising",
         "desc": "Arooj Butt is a growth marketer running Meta Ads, Google Ads, Shopify stores, websites, AI automations, WhatsApp funnels, UGC and brand building for brands in Pakistan, the US and Australia.",
         "body": [
             HERO,
-            CONTENTS,
             ABOUT,
             section("how-i-work", "How I work", head("Process", "How I work",
                     "The same five steps behind every account, refined across 20+ brands.") + '\n    <ol class="flow" id="process"></ol>', cls="s process"),
@@ -121,18 +121,13 @@ PAGES = {
         ],
     },
     "work.html": {
+        "nav": [("work", "Case studies"), ("results", "Proof"), ("websites", "Websites"), ("gallery", "Creative")],
         "title": "Work | Arooj Butt",
         "desc": "Arooj Butt's work: case studies with results, ad account dashboards, Shopify stores and websites, and creative from carousels to brand identities.",
         "body": [
-            '''<section class="s work-intro" aria-label="Work overview">
-  <div class="wrap">
-    <div class="head"><span class="eyebrow">Work</span><h1>Everything I've made, with the results</h1><p>Case studies, dashboards from the ad accounts, live stores and websites, and creative. Jump straight to what you need.</p></div>
-    <nav class="toc-box" id="tocBox" aria-label="Contents"></nav>
-  </div>
-</section>''',
-            section("work", "Case studies", head("Case studies", "Problems, fixes and results",
-                    "Open a card for the full story: what was wrong, what I changed and what happened.") +
-                    '\n    <div class="filters" id="caseFilters" role="group" aria-label="Filter case studies"></div>\n    <div class="grid" id="cases"></div>'),
+            section("work", "Case studies", head("Work", "Problems, fixes and results",
+                    "Case studies, dashboards from the ad accounts, live stores and websites, and creative. Open a card for the full story.", h1=True) +
+                    '\n    <div class="filters" id="caseFilters" role="group" aria-label="Filter case studies"></div>\n    <div class="grid" id="cases"></div>', first=True),
             section("results", "Proof", head("Proof", "Straight from the ad accounts",
                     "Unedited dashboards, cropped only to remove account details.") + '\n    <div class="results" id="resultsWall"></div>'),
             section("websites", "Websites", head("Build", "Stores and websites I've built",
@@ -150,6 +145,7 @@ PAGES = {
 def page(name, cfg):
     body = "\n\n".join(cfg["body"])
     links = "".join(f'<a href="{href}"' + (' aria-current="page"' if href == name else "") + f'>{label}</a>' for href, label in NAV)
+    seclinks = "".join(f'<a href="#{sid}" data-sec="{sid}">{label}</a>' for sid, label in cfg.get("nav", []))
     v = ASSET_VERSION
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -177,6 +173,7 @@ def page(name, cfg):
   <div class="wrap nav">
     <a class="logo" href="index.html"><i>AB</i><span>Arooj Butt</span></a>
     <nav class="pages" aria-label="Pages">{links}</nav>
+    <nav class="sec-links" id="secLinks" aria-label="On this page">{seclinks}</nav>
     <div class="tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme">{ICON_THEME}</button>
       <a class="btn primary sm" href="#contact">Hire me</a>

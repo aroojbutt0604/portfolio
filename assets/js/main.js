@@ -360,6 +360,7 @@
     last = idx;
     navLinks.forEach(function(a, i){ a.classList.toggle("active", i === idx); a.classList.toggle("done", i < idx); if (i === idx) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
     sheetLinks.forEach(function(a, i){ a.classList.toggle("active", i === idx); });
+    document.querySelectorAll("#secLinks a").forEach(function(a){ a.classList.toggle("active", a.dataset.sec === secs[idx].id); });
     nav.querySelector(".secnav-count b").textContent = pad(idx + 1);
     pill.innerHTML = '<span class="dot" aria-hidden="true"></span><span class="lbl">' + esc(secs[idx].dataset.label) + '</span><span class="cnt">' + (idx + 1) + "/" + secs.length + '</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>';
     pill.setAttribute("aria-label", "Current section: " + secs[idx].dataset.label + ". Show all sections");
