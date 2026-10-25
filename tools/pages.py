@@ -8,7 +8,7 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "13"
+ASSET_VERSION = "14"
 
 
 ICON_THEME = ('<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/>'
@@ -60,8 +60,10 @@ ABOUT = '''<section class="s" id="about" data-label="About" style="padding-top:1
     <div>
       <div class="head"><span class="eyebrow">About</span><h2>Growth that shows up in the numbers</h2></div>
       <div id="aboutText"></div>
+      <h3 class="svc-head" id="services">What I do</h3>
+      <div class="svc-list" id="svcList"></div>
     </div>
-    <div>
+    <div class="about-side">
       <div class="portrait"><img id="portrait" alt="Portrait of Arooj Butt" width="560" height="560" loading="lazy"></div>
       <dl class="facts" id="facts"></dl>
     </div>
@@ -98,9 +100,6 @@ PAGES = {
             HERO,
             CONTENTS,
             ABOUT,
-            section("services", "What I do", head("Services", "What I do",
-                    "Paid media, the funnel and content behind it, and the stores, websites and automations it runs on.") +
-                    '\n    <div class="svc-list wide" id="svcList"></div>'),
             section("work", "Case studies", head("Case studies", "Problems, fixes and results",
                     "Open a card for the full story: what was wrong, what I changed and what happened.") +
                     '\n    <div class="filters" id="caseFilters" role="group" aria-label="Filter case studies"></div>\n    <div class="grid" id="cases"></div>'),

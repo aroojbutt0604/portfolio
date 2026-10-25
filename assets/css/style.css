@@ -497,3 +497,7 @@ header.top{min-height:69px}
 .toc-box a small{font:400 .82rem var(--body);color:var(--muted);margin-left:auto;white-space:nowrap}
 .toc-box a:hover{background:var(--bg2)}
 .toc-box a:hover .n{color:var(--a1)}
+
+/* About: services sit under the text; the portrait column sticks so neither side leaves a gap */
+@media (min-width:961px){.about-side{position:sticky;top:90px}}
+.about .svc-head{margin-top:1.8rem}
