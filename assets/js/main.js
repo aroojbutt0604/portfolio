@@ -309,7 +309,7 @@
   var TOC = [
     ["about", "About"],
     ["services", "What I do", S.services.map(function(s, i){ return ["svc-" + i, s.title]; })],
-    ["process", "How I work"],
+    ["how-i-work", "How I work"],
     ["experience", "Experience", S.experience.map(function(e, i){ return ["exp-" + i, firstPart(e.org)]; })],
     ["work", "Case studies", S.cases.map(function(c, i){ return ["case-" + i, firstPart(c.client)]; })],
     ["websites", "Stores and websites", S.websites.map(function(w, i){ return ["site-" + i, w.name]; })],
