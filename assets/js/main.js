@@ -38,7 +38,8 @@
     ext:'<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
     pplay:'<path d="m8 5 11 7-11 7z" fill="currentColor"/>',
     x:'<path d="M18 6 6 18M6 6l12 12"/>',
-    arrow:'<path d="M5 12h14M13 5l7 7-7 7"/>'
+    arrow:'<path d="M5 12h14M13 5l7 7-7 7"/>',
+    lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'
   };
   var icon = function(name, cls){ return '<svg class="i' + (cls ? " " + cls : "") + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || ICONS.spark) + "</svg>"; };
 
@@ -251,9 +252,11 @@
   }
 
   /* ---------- strategy, leadership, skills, education ---------- */
+  // strategy docs are confidential, so they get compact document cards rather than image covers
   if ($("strategyGrid")) $("strategyGrid").innerHTML = S.strategy.map(function(s, i){
     var c = S.services[i % S.services.length];
-    return staticCard({ c1: c.c1, c2: c.c2, icon: s.icon }, "<small>" + esc(s.client) + "</small><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p>");
+    return '<article class="doc-card rv" style="--c1:' + c.c1 + ";--c2:" + c.c2 + '"><div class="doc-top"><span class="doc-ico">' + icon(s.icon) + '</span><span class="doc-tag">' + icon("lock") + "Confidential strategy doc</span></div>" +
+      "<small>" + esc(s.client) + "</small><h3>" + esc(s.title) + "</h3><p>" + esc(s.text) + "</p></article>";
   }).join("");
   var withText = S.leadership.filter(function(l){ return l.text; });
   var campus = S.leadership.filter(function(l){ return !l.text; });

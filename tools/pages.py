@@ -8,7 +8,7 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "16"
+ASSET_VERSION = "17"
 
 NAV = [("index.html", "Home"), ("work.html", "Work")]
 

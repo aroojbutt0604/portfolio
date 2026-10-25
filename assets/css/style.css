@@ -527,3 +527,25 @@ header.top .nav{gap:.9rem}
 .tools{margin-left:auto}
 @media (min-width:1100px){.sec-links{display:flex}.tools{margin-left:0}}
 @media (max-width:480px){.pages{margin-left:.2rem}.pages a{padding:.34rem .7rem}}
+
+/* strategy documents: compact cards, no image cover */
+.doc-card{position:relative;display:flex;flex-direction:column;gap:.45rem;padding:1.3rem 1.35rem 1.4rem;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
+.doc-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.doc-card:hover{transform:translateY(-3px);border-color:var(--c1);box-shadow:var(--shadow)}
+.doc-top{display:flex;align-items:center;justify-content:space-between;gap:.8rem;margin-bottom:.35rem}
+.doc-ico{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;color:var(--c1);background:color-mix(in srgb,var(--c1) 14%,transparent)}
+:root[data-theme="dark"] .doc-ico{color:color-mix(in srgb,var(--c1) 55%,white)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .doc-ico{color:color-mix(in srgb,var(--c1) 55%,white)}}
+.doc-ico svg.i{width:22px;height:22px}
+.doc-tag{display:inline-flex;align-items:center;gap:.35rem;font:500 .72rem var(--mono);color:var(--muted);padding:.25rem .6rem;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+.doc-tag svg.i{width:13px;height:13px}
+.doc-card small{font:500 .78rem var(--mono);color:var(--muted)}
+.doc-card h3{font-size:1.12rem}
+.doc-card p{color:var(--muted);font-size:.95rem;margin:0;line-height:1.55}
+@media (prefers-reduced-motion:reduce){.doc-card{transition:none}}
+
+/* right-edge navigator: only show the persistent current label when the side margin can fit it */
+@media (max-width:1499px){
+  .secnav a.active .lbl{opacity:0;transform:translateX(6px);background:none;border-color:transparent;box-shadow:none;padding:0}
+  .secnav:hover a.active .lbl,.secnav:focus-within a.active .lbl{opacity:1;transform:none}
+}
