@@ -178,12 +178,13 @@
 
   /* ---------- results wall ---------- */
   if ($("resultsWall")) {
-  $("resultsWall").innerHTML = S.results.map(function(r, i){
+  var resN = +$("resultsWall").getAttribute("data-limit") || S.results.length, results = S.results.slice(0, resN);
+  $("resultsWall").innerHTML = results.map(function(r, i){
     return '<figure class="rv"><button type="button" data-ri="' + i + '" aria-label="View larger: ' + esc(r.title) + '"><img src="' + full(r.src) + '" alt="' + esc(r.title + ": " + r.note) + '" loading="lazy"></button><figcaption><b>' + esc(r.title) + "</b><small>" + esc(r.meta) + "</small><span>" + esc(r.note) + "</span></figcaption></figure>";
   }).join("");
   $("resultsWall").addEventListener("click", function(e){
     var b = e.target.closest("[data-ri]"); if (!b) return;
-    openLightbox(S.results.map(function(r){ return { src: full(r.src), title: r.title, sub: r.note }; }), +b.getAttribute("data-ri"));
+    openLightbox(results.map(function(r){ return { src: full(r.src), title: r.title, sub: r.note }; }), +b.getAttribute("data-ri"));
   });
   }
 

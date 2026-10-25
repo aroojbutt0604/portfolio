@@ -8,7 +8,9 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "14"
+ASSET_VERSION = "15"
+
+NAV = [("index.html", "Home"), ("work.html", "Work")]
 
 
 ICON_THEME = ('<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/>'
@@ -40,7 +42,7 @@ HERO = '''<section class="hero" id="top" data-label="Intro">
       <div class="role grad"><span id="role"></span><span class="caret" aria-hidden="true"></span></div>
       <p class="tagline" id="tagline"></p>
       <p class="lede" id="lede"></p>
-      <div class="cta"><a class="btn primary" href="#work">See the results</a><a class="btn" href="#contact">Get in touch</a></div>
+      <div class="cta"><a class="btn primary" href="work.html">See the results</a><a class="btn" href="#contact">Get in touch</a></div>
       <div class="socials" id="heroSocials"></div>
     </div>
     <div class="hero-visual">
@@ -100,6 +102,34 @@ PAGES = {
             HERO,
             CONTENTS,
             ABOUT,
+            section("how-i-work", "How I work", head("Process", "How I work",
+                    "The same five steps behind every account, refined across 20+ brands.") + '\n    <ol class="flow" id="process"></ol>', cls="s process"),
+            section("experience", "Experience", head("Experience", "Where I've done it") + '\n    <ol class="tl" id="timeline"></ol>'),
+            section("leadership", "Leadership", head("Leadership", "Leading teams and events") +
+                    '\n    <div class="lead-grid" id="leadFeature"></div>\n    <div class="campus" id="campus"></div>'),
+            section("featured", "Selected work", head("Selected work", "Results that speak first",
+                    "Three of the strongest case studies and two dashboards straight from the ad accounts. The full portfolio is on the Work page.") +
+                    '\n    <div class="grid" id="cases" data-limit="3"></div>\n    <div class="results featured-proof" id="resultsWall" data-limit="2"></div>\n' +
+                    more("work.html", "See all work")),
+            section("strategy", "Audits and plans", head("Strategy", "Audits and plans",
+                    "Strategy documents written for clients. Details stay confidential, so here's what each one covered.") +
+                    '\n    <div class="grid svc" id="strategyGrid"></div>'),
+            section("skills", "Skills", head("Toolkit", "Skills") + '\n    <div class="skills" id="skillsGrid"></div>'),
+            section("education", "Education", head("", "Education and certifications") +
+                    '\n    <div class="two"><div id="edu"></div><div id="certs"></div></div>'),
+            CONTACT,
+        ],
+    },
+    "work.html": {
+        "title": "Work | Arooj Butt",
+        "desc": "Arooj Butt's work: case studies with results, ad account dashboards, Shopify stores and websites, and creative from carousels to brand identities.",
+        "body": [
+            '''<section class="s work-intro" aria-label="Work overview">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Work</span><h1>Everything I've made, with the results</h1><p>Case studies, dashboards from the ad accounts, live stores and websites, and creative. Jump straight to what you need.</p></div>
+    <nav class="toc-box" id="tocBox" aria-label="Contents"></nav>
+  </div>
+</section>''',
             section("work", "Case studies", head("Case studies", "Problems, fixes and results",
                     "Open a card for the full story: what was wrong, what I changed and what happened.") +
                     '\n    <div class="filters" id="caseFilters" role="group" aria-label="Filter case studies"></div>\n    <div class="grid" id="cases"></div>'),
@@ -111,17 +141,6 @@ PAGES = {
             section("gallery", "Creative", head("Creative", "Carousels, ads and brand work",
                     "Creatives I've made for clients and for my own page. Carousels open slide by slide.") +
                     '\n    <div class="filters" id="galFilters" role="group" aria-label="Filter creative work"></div>\n    <div class="gallery" id="galleryGrid"></div>\n    <div class="more-wrap"><button class="btn" id="galMore" type="button">Show more</button></div>'),
-            section("how-i-work", "How I work", head("Process", "How I work",
-                    "The same five steps behind every account, refined across 20+ brands.") + '\n    <ol class="flow" id="process"></ol>', cls="s process"),
-            section("experience", "Experience", head("Experience", "Where I've done it") + '\n    <ol class="tl" id="timeline"></ol>'),
-            section("strategy", "Audits and plans", head("Strategy", "Audits and plans",
-                    "Strategy documents written for clients. Details stay confidential, so here's what each one covered.") +
-                    '\n    <div class="grid svc" id="strategyGrid"></div>'),
-            section("leadership", "Leadership", head("Leadership", "Leading teams and events") +
-                    '\n    <div class="lead-grid" id="leadFeature"></div>\n    <div class="campus" id="campus"></div>'),
-            section("skills", "Skills", head("Toolkit", "Skills") + '\n    <div class="skills" id="skillsGrid"></div>'),
-            section("education", "Education", head("", "Education and certifications") +
-                    '\n    <div class="two"><div id="edu"></div><div id="certs"></div></div>'),
             CONTACT,
         ],
     },
@@ -130,6 +149,7 @@ PAGES = {
 
 def page(name, cfg):
     body = "\n\n".join(cfg["body"])
+    links = "".join(f'<a href="{href}"' + (' aria-current="page"' if href == name else "") + f'>{label}</a>' for href, label in NAV)
     v = ASSET_VERSION
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -155,7 +175,8 @@ def page(name, cfg):
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap nav">
-    <a class="logo" href="#top"><i>AB</i><span>Arooj Butt</span></a>
+    <a class="logo" href="index.html"><i>AB</i><span>Arooj Butt</span></a>
+    <nav class="pages" aria-label="Pages">{links}</nav>
     <div class="tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme">{ICON_THEME}</button>
       <a class="btn primary sm" href="#contact">Hire me</a>
@@ -171,7 +192,7 @@ def page(name, cfg):
 <main id="main">
 {body}
 </main>
-<footer class="f"><div class="wrap">© <span id="year"></span> Arooj Butt · Growth Marketing and Paid Advertising</div></footer>
+<footer class="f"><div class="wrap"><nav class="f-links" aria-label="Footer">{links}</nav>© <span id="year"></span> Arooj Butt · Growth Marketing and Paid Advertising</div></footer>
 
 <dialog id="caseModal" aria-labelledby="mTitle"><div id="caseBody"></div></dialog>
 
