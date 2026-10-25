@@ -8,7 +8,7 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "12"
+ASSET_VERSION = "13"
 
 
 ICON_THEME = ('<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/>'
@@ -68,6 +68,10 @@ ABOUT = '''<section class="s" id="about" data-label="About" style="padding-top:1
   </div>
 </section>'''
 
+CONTENTS = '''<section class="s" style="padding-top:0" aria-label="Contents">
+  <div class="wrap"><nav class="toc-box" id="tocBox" aria-label="Contents"></nav></div>
+</section>'''
+
 CONTACT = '''<section class="s" id="contact" data-label="Contact" style="padding-top:1rem">
   <div class="wrap">
     <div class="contact">
@@ -92,6 +96,8 @@ PAGES = {
         "desc": "Arooj Butt is a growth marketer running Meta Ads, Google Ads, Shopify stores, websites, AI automations, WhatsApp funnels, UGC and brand building for brands in Pakistan, the US and Australia.",
         "body": [
             HERO,
+            CONTENTS,
+            ABOUT,
             section("services", "What I do", head("Services", "What I do",
                     "Paid media, the funnel and content behind it, and the stores, websites and automations it runs on.") +
                     '\n    <div class="svc-list wide" id="svcList"></div>'),
@@ -106,7 +112,6 @@ PAGES = {
             section("gallery", "Creative", head("Creative", "Carousels, ads and brand work",
                     "Creatives I've made for clients and for my own page. Carousels open slide by slide.") +
                     '\n    <div class="filters" id="galFilters" role="group" aria-label="Filter creative work"></div>\n    <div class="gallery" id="galleryGrid"></div>\n    <div class="more-wrap"><button class="btn" id="galMore" type="button">Show more</button></div>'),
-            ABOUT,
             section("how-i-work", "How I work", head("Process", "How I work",
                     "The same five steps behind every account, refined across 20+ brands.") + '\n    <ol class="flow" id="process"></ol>', cls="s process"),
             section("experience", "Experience", head("Experience", "Where I've done it") + '\n    <ol class="tl" id="timeline"></ol>'),

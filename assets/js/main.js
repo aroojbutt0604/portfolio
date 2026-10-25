@@ -332,6 +332,13 @@
   sheet.querySelector("ol").innerHTML = secs.map(function(s, i){
     return '<li><a href="#' + s.id + '"><span class="n">' + pad(i + 1) + "</span>" + esc(s.dataset.label) + "</a></li>";
   }).join("");
+  var hints = { work: S.cases.length + " projects", websites: S.websites.length + " live sites", gallery: S.gallery.length + " pieces", experience: S.experience.length + " roles", results: S.results.length + " dashboards" };
+  on("tocBox", function(box){
+    var list = secs.filter(function(s){ return s.id !== "top"; });
+    box.innerHTML = '<div class="toc-box-head"><b>Contents</b><span>' + list.length + " sections</span></div><ol>" + list.map(function(s, i){
+      return '<li><a href="#' + s.id + '"><span class="n">' + pad(i + 1) + "</span>" + esc(s.dataset.label) + (hints[s.id] ? "<small>" + hints[s.id] + "</small>" : "") + "</a></li>";
+    }).join("") + "</ol>";
+  });
   var navLinks = [].slice.call(nav.querySelectorAll("a")), sheetLinks = [].slice.call(sheet.querySelectorAll("a"));
   var setSheet = function(open){
     sheet.hidden = !open; backdrop.hidden = !open; pill.setAttribute("aria-expanded", open);

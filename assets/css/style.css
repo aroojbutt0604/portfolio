@@ -416,7 +416,7 @@ body.toc-open .toc{transform:none;visibility:visible;box-shadow:var(--shadow)}
 .svc-ico{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 15%,transparent)}
 .svc-ico i{display:block;width:21px;height:21px;background:var(--c);-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
 .svc-item b{display:block;font:700 .95rem var(--display);color:var(--ink);line-height:1.3}
-.svc-item span{display:block;font-size:.84rem;color:var(--muted);line-height:1.4;margin-top:.15rem}
+.svc-item div>span{display:block;font-size:.84rem;color:var(--muted);line-height:1.4;margin-top:.15rem}
 @media (max-width:620px){.svc-list{grid-template-columns:1fr}}
 
 /* right-edge section rail */
@@ -484,3 +484,16 @@ header.top{min-height:69px}
 #secBackdrop{z-index:20}
 @media (min-width:1280px){.secpill,.secsheet{display:none!important}}
 @media (prefers-reduced-motion:reduce){.secnav .tick,.secnav .lbl,.secnav ol{transition:none}}
+
+/* contents box near the top of the page */
+.toc-box{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:1.2rem 1.4rem 1.3rem}
+.toc-box-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.8rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
+.toc-box-head b{font:700 1.1rem var(--display)}
+.toc-box-head span{font:500 .78rem var(--mono);color:var(--muted)}
+.toc-box ol{list-style:none;margin:0;padding:0;columns:3 210px;column-gap:1.5rem}
+.toc-box li{break-inside:avoid}
+.toc-box a{display:flex;gap:.7rem;align-items:baseline;padding:.42rem .55rem;border-radius:10px;color:var(--ink);text-decoration:none;font:600 .95rem var(--display)}
+.toc-box a .n{font:500 .74rem var(--mono);color:var(--a2);min-width:1.5rem}
+.toc-box a small{font:400 .82rem var(--body);color:var(--muted);margin-left:auto;white-space:nowrap}
+.toc-box a:hover{background:var(--bg2)}
+.toc-box a:hover .n{color:var(--a1)}
