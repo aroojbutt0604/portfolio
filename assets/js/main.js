@@ -319,36 +319,47 @@
     if (Math.abs(dx) > 45 && lbList.length > 1) step(dx < 0 ? 1 : -1);
   });
 
-  /* ---------- navigation: mobile menu and section rail ---------- */
-  var body = document.body, menuBtn = $("menuBtn"), menuBackdrop = $("menuBackdrop");
-  var setMenu = function(open){ body.classList.toggle("toc-open", open); menuBackdrop.hidden = !open; menuBtn.setAttribute("aria-expanded", open); };
-  menuBtn.addEventListener("click", function(){ setMenu(!body.classList.contains("toc-open")); });
-  $("menuClose").addEventListener("click", function(){ setMenu(false); });
-  menuBackdrop.addEventListener("click", function(){ setMenu(false); });
-  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && body.classList.contains("toc-open")) setMenu(false); });
+  /* ---------- section navigator ----------
+     Desktop: a tick per section on the right edge; only the current section's name shows,
+     hovering expands the full list. Narrow screens: a bottom pill with the current section
+     that opens a sheet listing every section. */
+  var secs = [].slice.call(document.querySelectorAll("main > section[data-label][id]"));
+  var nav = $("secnav"), pill = $("secpill"), sheet = $("secsheet"), backdrop = $("secBackdrop");
+  var pad = function(n){ return (n < 10 ? "0" : "") + n; };
+  nav.innerHTML = '<span class="secnav-count"><b>01</b> / ' + pad(secs.length) + "</span><ol>" + secs.map(function(s){
+    return '<li><a href="#' + s.id + '"><span class="lbl">' + esc(s.dataset.label) + '</span><span class="tick" aria-hidden="true"></span></a></li>';
+  }).join("") + "</ol>";
+  sheet.querySelector("ol").innerHTML = secs.map(function(s, i){
+    return '<li><a href="#' + s.id + '"><span class="n">' + pad(i + 1) + "</span>" + esc(s.dataset.label) + "</a></li>";
+  }).join("");
+  var navLinks = [].slice.call(nav.querySelectorAll("a")), sheetLinks = [].slice.call(sheet.querySelectorAll("a"));
+  var setSheet = function(open){
+    sheet.hidden = !open; backdrop.hidden = !open; pill.setAttribute("aria-expanded", open);
+    if (open) { var cur = sheet.querySelector("a.active"); if (cur) cur.scrollIntoView({ block: "center" }); }
+  };
+  pill.addEventListener("click", function(){ setSheet(sheet.hidden); });
+  $("secsheetClose").addEventListener("click", function(){ setSheet(false); });
+  backdrop.addEventListener("click", function(){ setSheet(false); });
+  sheet.addEventListener("click", function(e){ if (e.target.closest("a")) setSheet(false); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !sheet.hidden) setSheet(false); });
 
-  // the rail lists the sections on this page and follows the scroll
-  var railSecs = [].slice.call(document.querySelectorAll("main > section[data-label][id]"));
-  var rail = $("rail");
-  if (railSecs.length < 3) rail.remove();
-  else {
-    rail.innerHTML = railSecs.map(function(s){ return '<a href="#' + s.id + '" aria-label="' + esc(s.dataset.label) + '"><span>' + esc(s.dataset.label) + "</span></a>"; }).join("");
-    var dots = [].slice.call(rail.querySelectorAll("a")), peekTimer = null, last = -1;
-    var spy = function(){
-      var y = window.innerHeight * 0.35, idx = 0;
-      railSecs.forEach(function(s, i){ if (s.getBoundingClientRect().top <= y) idx = i; });
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) idx = railSecs.length - 1;
-      dots.forEach(function(d, i){ d.classList.toggle("active", i === idx); d.classList.toggle("done", i < idx); });
-      if (idx !== last) {   // briefly show the new section's name
-        if (last > -1) { dots.forEach(function(d){ d.classList.remove("peek"); }); dots[idx].classList.add("peek"); clearTimeout(peekTimer);
-          peekTimer = setTimeout(function(){ dots[idx].classList.remove("peek"); }, 1200); }
-        last = idx;
-      }
-    };
-    var ticking = false;
-    window.addEventListener("scroll", function(){ if (!ticking) { ticking = true; requestAnimationFrame(function(){ spy(); ticking = false; }); } }, { passive: true });
-    spy();
-  }
+  var last = -1;
+  var spy = function(){
+    var y = window.innerHeight * 0.35, idx = 0;
+    secs.forEach(function(s, i){ if (s.getBoundingClientRect().top <= y) idx = i; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) idx = secs.length - 1;
+    if (idx === last) return;
+    last = idx;
+    navLinks.forEach(function(a, i){ a.classList.toggle("active", i === idx); a.classList.toggle("done", i < idx); if (i === idx) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+    sheetLinks.forEach(function(a, i){ a.classList.toggle("active", i === idx); });
+    nav.querySelector(".secnav-count b").textContent = pad(idx + 1);
+    pill.innerHTML = '<span class="dot" aria-hidden="true"></span><span class="lbl">' + esc(secs[idx].dataset.label) + '</span><span class="cnt">' + (idx + 1) + "/" + secs.length + '</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>';
+    pill.setAttribute("aria-label", "Current section: " + secs[idx].dataset.label + ". Show all sections");
+    pill.hidden = idx === 0;   // stays out of the way on the intro
+  };
+  var ticking = false;
+  window.addEventListener("scroll", function(){ if (!ticking) { ticking = true; requestAnimationFrame(function(){ spy(); ticking = false; }); } }, { passive: true });
+  spy();
 
   /* ---------- scroll reveal ---------- */
   var rvs = document.querySelectorAll(".rv");

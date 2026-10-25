@@ -16,17 +16,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=11">
+<link rel="stylesheet" href="assets/css/style.css?v=12">
 </head>
 <body data-page="index">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap nav">
-    <div class="nav-left">
-      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Open menu"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
-      <a class="logo" href="index.html"><i>AB</i><span>Arooj Butt</span></a>
-    </div>
-    <nav aria-label="Primary"><ul id="headNav"><li><a href="index.html" aria-current="page">Home</a></li><li><a href="work.html">Work</a></li><li><a href="websites.html">Websites</a></li><li><a href="creative.html">Creative</a></li><li><a href="about.html">About</a></li></ul></nav>
+    <a class="logo" href="#top"><i>AB</i><span>Arooj Butt</span></a>
     <div class="tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
       <a class="btn primary sm" href="#contact">Hire me</a>
@@ -34,12 +30,10 @@
   </div>
 </header>
 
-<aside class="toc" id="menu" aria-label="Menu">
-  <div class="toc-head"><b>Menu</b><button type="button" id="menuClose">close</button></div>
-  <nav><ol class="menu-list"><li><a href="index.html" aria-current="page">Home</a></li><li><a href="work.html">Work</a></li><li><a href="websites.html">Websites</a></li><li><a href="creative.html">Creative</a></li><li><a href="about.html">About</a></li></ol></nav>
-</aside>
-<div class="toc-backdrop" id="menuBackdrop" hidden></div>
-<nav class="rail" id="rail" aria-label="Sections on this page"></nav>
+<nav class="secnav" id="secnav" aria-label="Sections"></nav>
+<button class="secpill" id="secpill" type="button" aria-controls="secsheet" aria-expanded="false" hidden></button>
+<div class="secsheet" id="secsheet" role="dialog" aria-label="All sections" hidden><div class="toc-head"><b>Jump to</b><button type="button" id="secsheetClose">close</button></div><ol></ol></div>
+<div class="toc-backdrop" id="secBackdrop" hidden></div>
 
 <main id="main">
 <section class="hero" id="top" data-label="Intro">
@@ -50,7 +44,7 @@
       <div class="role grad"><span id="role"></span><span class="caret" aria-hidden="true"></span></div>
       <p class="tagline" id="tagline"></p>
       <p class="lede" id="lede"></p>
-      <div class="cta"><a class="btn primary" href="work.html">See the results</a><a class="btn" href="#contact">Get in touch</a></div>
+      <div class="cta"><a class="btn primary" href="#work">See the results</a><a class="btn" href="#contact">Get in touch</a></div>
       <div class="socials" id="heroSocials"></div>
     </div>
     <div class="hero-visual">
@@ -72,19 +66,90 @@
   </div>
 </section>
 
-<section class="s" id="featured" data-label="Selected work" style="padding-top:1rem">
+<section class="s" id="work" data-label="Case studies" style="padding-top:1rem">
   <div class="wrap">
-    <div class="head"><span class="eyebrow">Case studies</span><h2>Selected work</h2><p>Three of the strongest results. Open a card for the full story.</p></div>
-    <div class="grid" id="cases" data-limit="3"></div>
-    <div class="more-wrap"><a class="btn" href="work.html">See all case studies <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+    <div class="head"><span class="eyebrow">Case studies</span><h2>Problems, fixes and results</h2><p>Open a card for the full story: what was wrong, what I changed and what happened.</p></div>
+    <div class="filters" id="caseFilters" role="group" aria-label="Filter case studies"></div>
+    <div class="grid" id="cases"></div>
+  </div>
+</section>
+
+<section class="s" id="results" data-label="Proof" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Proof</span><h2>Straight from the ad accounts</h2><p>Unedited dashboards, cropped only to remove account details.</p></div>
+    <div class="results" id="resultsWall"></div>
   </div>
 </section>
 
 <section class="s" id="websites" data-label="Websites" style="padding-top:1rem">
   <div class="wrap">
-    <div class="head"><span class="eyebrow">Build</span><h2>Stores and websites I've built</h2></div>
-    <div class="grid" id="sitesGrid" data-limit="3"></div>
-    <div class="more-wrap"><a class="btn" href="websites.html">See all websites <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+    <div class="head"><span class="eyebrow">Build</span><h2>Stores and websites I've built</h2><p>Shopify stores and websites that are live today. Open any one to see it for yourself.</p></div>
+    <div class="grid" id="sitesGrid"></div>
+  </div>
+</section>
+
+<section class="s" id="gallery" data-label="Creative" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Creative</span><h2>Carousels, ads and brand work</h2><p>Creatives I've made for clients and for my own page. Carousels open slide by slide.</p></div>
+    <div class="filters" id="galFilters" role="group" aria-label="Filter creative work"></div>
+    <div class="gallery" id="galleryGrid"></div>
+    <div class="more-wrap"><button class="btn" id="galMore" type="button">Show more</button></div>
+  </div>
+</section>
+
+<section class="s" id="about" data-label="About" style="padding-top:1rem">
+  <div class="wrap about">
+    <div>
+      <div class="head"><span class="eyebrow">About</span><h2>Growth that shows up in the numbers</h2></div>
+      <div id="aboutText"></div>
+    </div>
+    <div>
+      <div class="portrait"><img id="portrait" alt="Portrait of Arooj Butt" width="560" height="560" loading="lazy"></div>
+      <dl class="facts" id="facts"></dl>
+    </div>
+  </div>
+</section>
+
+<section class="s process" id="how-i-work" data-label="How I work" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Process</span><h2>How I work</h2><p>The same five steps behind every account, refined across 20+ brands.</p></div>
+    <ol class="flow" id="process"></ol>
+  </div>
+</section>
+
+<section class="s" id="experience" data-label="Experience" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Experience</span><h2>Where I've done it</h2></div>
+    <ol class="tl" id="timeline"></ol>
+  </div>
+</section>
+
+<section class="s" id="strategy" data-label="Audits and plans" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Strategy</span><h2>Audits and plans</h2><p>Strategy documents written for clients. Details stay confidential, so here's what each one covered.</p></div>
+    <div class="grid svc" id="strategyGrid"></div>
+  </div>
+</section>
+
+<section class="s" id="leadership" data-label="Leadership" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Leadership</span><h2>Leading teams and events</h2></div>
+    <div class="lead-grid" id="leadFeature"></div>
+    <div class="campus" id="campus"></div>
+  </div>
+</section>
+
+<section class="s" id="skills" data-label="Skills" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow">Toolkit</span><h2>Skills</h2></div>
+    <div class="skills" id="skillsGrid"></div>
+  </div>
+</section>
+
+<section class="s" id="education" data-label="Education" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="head"><h2>Education and certifications</h2></div>
+    <div class="two"><div id="edu"></div><div id="certs"></div></div>
   </div>
 </section>
 
@@ -106,7 +171,7 @@
   </div>
 </section>
 </main>
-<footer class="f"><div class="wrap"><nav class="f-links" aria-label="Footer"><a href="index.html">Home</a> · <a href="work.html">Work</a> · <a href="websites.html">Websites</a> · <a href="creative.html">Creative</a> · <a href="about.html">About</a></nav>© <span id="year"></span> Arooj Butt · Growth Marketing and Paid Advertising</div></footer>
+<footer class="f"><div class="wrap">© <span id="year"></span> Arooj Butt · Growth Marketing and Paid Advertising</div></footer>
 
 <dialog id="caseModal" aria-labelledby="mTitle"><div id="caseBody"></div></dialog>
 
@@ -119,7 +184,7 @@
 </dialog>
 
 <noscript><p style="text-align:center;padding:2rem">This portfolio needs JavaScript to show its work. Email <a href="mailto:aroojbutt0604@gmail.com">aroojbutt0604@gmail.com</a>.</p></noscript>
-<script src="assets/js/content.js?v=11"></script>
-<script src="assets/js/main.js?v=11"></script>
+<script src="assets/js/content.js?v=12"></script>
+<script src="assets/js/main.js?v=12"></script>
 </body>
 </html>

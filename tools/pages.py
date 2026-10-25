@@ -8,12 +8,9 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "11"
+ASSET_VERSION = "12"
 
-NAV = [("index.html", "Home"), ("work.html", "Work"), ("websites.html", "Websites"),
-       ("creative.html", "Creative"), ("about.html", "About")]
 
-ICON_MENU = '<svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>'
 ICON_THEME = ('<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/>'
               '<path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>')
 ICON_ARROW = '<svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>'
@@ -43,7 +40,7 @@ HERO = '''<section class="hero" id="top" data-label="Intro">
       <div class="role grad"><span id="role"></span><span class="caret" aria-hidden="true"></span></div>
       <p class="tagline" id="tagline"></p>
       <p class="lede" id="lede"></p>
-      <div class="cta"><a class="btn primary" href="work.html">See the results</a><a class="btn" href="#contact">Get in touch</a></div>
+      <div class="cta"><a class="btn primary" href="#work">See the results</a><a class="btn" href="#contact">Get in touch</a></div>
       <div class="socials" id="heroSocials"></div>
     </div>
     <div class="hero-visual">
@@ -58,13 +55,11 @@ HERO = '''<section class="hero" id="top" data-label="Intro">
   <div class="wrap"><div class="proof" id="proof"></div></div>
 </section>'''
 
-ABOUT = '''<section class="s" id="about" data-label="About">
+ABOUT = '''<section class="s" id="about" data-label="About" style="padding-top:1rem">
   <div class="wrap about">
     <div>
-      <div class="head"><span class="eyebrow">About</span><h1>Growth that shows up in the numbers</h1></div>
+      <div class="head"><span class="eyebrow">About</span><h2>Growth that shows up in the numbers</h2></div>
       <div id="aboutText"></div>
-      <h2 class="svc-head" id="services">What I do</h2>
-      <div class="svc-list" id="svcList"></div>
     </div>
     <div>
       <div class="portrait"><img id="portrait" alt="Portrait of Arooj Butt" width="560" height="560" loading="lazy"></div>
@@ -100,57 +95,24 @@ PAGES = {
             section("services", "What I do", head("Services", "What I do",
                     "Paid media, the funnel and content behind it, and the stores, websites and automations it runs on.") +
                     '\n    <div class="svc-list wide" id="svcList"></div>'),
-            section("featured", "Selected work", head("Case studies", "Selected work",
-                    "Three of the strongest results. Open a card for the full story.") +
-                    '\n    <div class="grid" id="cases" data-limit="3"></div>\n' + more("work.html", "See all case studies")),
-            section("websites", "Websites", head("Build", "Stores and websites I've built") +
-                    '\n    <div class="grid" id="sitesGrid" data-limit="3"></div>\n' + more("websites.html", "See all websites")),
-            CONTACT,
-        ],
-    },
-    "work.html": {
-        "title": "Work and case studies | Arooj Butt",
-        "desc": "Case studies from Arooj Butt: Meta Ads, Google Ads, WhatsApp funnels, e-commerce growth, social and brand work, with results straight from the ad accounts.",
-        "body": [
             section("work", "Case studies", head("Case studies", "Problems, fixes and results",
-                    "Open a card for the full story: what was wrong, what I changed and what happened.", h1=True) +
-                    '\n    <div class="filters" id="caseFilters" role="group" aria-label="Filter case studies"></div>\n    <div class="grid" id="cases"></div>', first=True),
+                    "Open a card for the full story: what was wrong, what I changed and what happened.") +
+                    '\n    <div class="filters" id="caseFilters" role="group" aria-label="Filter case studies"></div>\n    <div class="grid" id="cases"></div>'),
             section("results", "Proof", head("Proof", "Straight from the ad accounts",
                     "Unedited dashboards, cropped only to remove account details.") + '\n    <div class="results" id="resultsWall"></div>'),
-            section("strategy", "Audits and plans", head("Strategy", "Audits and plans",
-                    "Strategy documents written for clients. Details stay confidential, so here's what each one covered.") +
-                    '\n    <div class="grid svc" id="strategyGrid"></div>'),
-            CONTACT,
-        ],
-    },
-    "websites.html": {
-        "title": "Stores and websites | Arooj Butt",
-        "desc": "Shopify stores and websites built by Arooj Butt, live today.",
-        "body": [
             section("websites", "Websites", head("Build", "Stores and websites I've built",
-                    "Shopify stores and websites that are live today. Open any one to see it for yourself.", h1=True) +
-                    '\n    <div class="grid" id="sitesGrid"></div>', first=True),
-            CONTACT,
-        ],
-    },
-    "creative.html": {
-        "title": "Creative work | Arooj Butt",
-        "desc": "Carousels, ad creatives, brand identities, social grids and video by Arooj Butt.",
-        "body": [
+                    "Shopify stores and websites that are live today. Open any one to see it for yourself.") +
+                    '\n    <div class="grid" id="sitesGrid"></div>'),
             section("gallery", "Creative", head("Creative", "Carousels, ads and brand work",
-                    "Creatives I've made for clients and for my own page. Carousels open slide by slide.", h1=True) +
-                    '\n    <div class="filters" id="galFilters" role="group" aria-label="Filter creative work"></div>\n    <div class="gallery" id="galleryGrid"></div>\n    <div class="more-wrap"><button class="btn" id="galMore" type="button">Show more</button></div>', first=True),
-            CONTACT,
-        ],
-    },
-    "about.html": {
-        "title": "About Arooj Butt | Growth Marketer",
-        "desc": "About Arooj Butt: five years in growth and performance marketing, how she works, experience, leadership, skills and education.",
-        "body": [
+                    "Creatives I've made for clients and for my own page. Carousels open slide by slide.") +
+                    '\n    <div class="filters" id="galFilters" role="group" aria-label="Filter creative work"></div>\n    <div class="gallery" id="galleryGrid"></div>\n    <div class="more-wrap"><button class="btn" id="galMore" type="button">Show more</button></div>'),
             ABOUT,
             section("how-i-work", "How I work", head("Process", "How I work",
                     "The same five steps behind every account, refined across 20+ brands.") + '\n    <ol class="flow" id="process"></ol>', cls="s process"),
             section("experience", "Experience", head("Experience", "Where I've done it") + '\n    <ol class="tl" id="timeline"></ol>'),
+            section("strategy", "Audits and plans", head("Strategy", "Audits and plans",
+                    "Strategy documents written for clients. Details stay confidential, so here's what each one covered.") +
+                    '\n    <div class="grid svc" id="strategyGrid"></div>'),
             section("leadership", "Leadership", head("Leadership", "Leading teams and events") +
                     '\n    <div class="lead-grid" id="leadFeature"></div>\n    <div class="campus" id="campus"></div>'),
             section("skills", "Skills", head("Toolkit", "Skills") + '\n    <div class="skills" id="skillsGrid"></div>'),
@@ -163,9 +125,6 @@ PAGES = {
 
 
 def page(name, cfg):
-    nav = "".join(f'<li><a href="{href}"{" aria-current=\"page\"" if href == name else ""}>{label}</a></li>' for href, label in NAV)
-    menu = "".join(f'<li><a href="{href}"{" aria-current=\"page\"" if href == name else ""}>{label}</a></li>' for href, label in NAV)
-    foot = " · ".join(f'<a href="{href}">{label}</a>' for href, label in NAV)
     body = "\n\n".join(cfg["body"])
     v = ASSET_VERSION
     return f'''<!DOCTYPE html>
@@ -192,11 +151,7 @@ def page(name, cfg):
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap nav">
-    <div class="nav-left">
-      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Open menu">{ICON_MENU}</button>
-      <a class="logo" href="index.html"><i>AB</i><span>Arooj Butt</span></a>
-    </div>
-    <nav aria-label="Primary"><ul id="headNav">{nav}</ul></nav>
+    <a class="logo" href="#top"><i>AB</i><span>Arooj Butt</span></a>
     <div class="tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme">{ICON_THEME}</button>
       <a class="btn primary sm" href="#contact">Hire me</a>
@@ -204,17 +159,15 @@ def page(name, cfg):
   </div>
 </header>
 
-<aside class="toc" id="menu" aria-label="Menu">
-  <div class="toc-head"><b>Menu</b><button type="button" id="menuClose">close</button></div>
-  <nav><ol class="menu-list">{menu}</ol></nav>
-</aside>
-<div class="toc-backdrop" id="menuBackdrop" hidden></div>
-<nav class="rail" id="rail" aria-label="Sections on this page"></nav>
+<nav class="secnav" id="secnav" aria-label="Sections"></nav>
+<button class="secpill" id="secpill" type="button" aria-controls="secsheet" aria-expanded="false" hidden></button>
+<div class="secsheet" id="secsheet" role="dialog" aria-label="All sections" hidden><div class="toc-head"><b>Jump to</b><button type="button" id="secsheetClose">close</button></div><ol></ol></div>
+<div class="toc-backdrop" id="secBackdrop" hidden></div>
 
 <main id="main">
 {body}
 </main>
-<footer class="f"><div class="wrap"><nav class="f-links" aria-label="Footer">{foot}</nav>© <span id="year"></span> Arooj Butt · Growth Marketing and Paid Advertising</div></footer>
+<footer class="f"><div class="wrap">© <span id="year"></span> Arooj Butt · Growth Marketing and Paid Advertising</div></footer>
 
 <dialog id="caseModal" aria-labelledby="mTitle"><div id="caseBody"></div></dialog>
 
