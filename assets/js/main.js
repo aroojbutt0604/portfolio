@@ -300,6 +300,94 @@
     if (Math.abs(dx) > 45 && lbList.length > 1) step(dx < 0 ? 1 : -1);
   });
 
+  /* ---------- contents sidebar ---------- */
+  var desk = window.matchMedia("(min-width: 1200px)");
+  var tocBtn = $("tocBtn"), tocBackdrop = $("tocBackdrop"), body = document.body;
+  var firstPart = function(t){ return t.split(/ · |[(,]/)[0].trim(); };
+  var tag = function(sel, prefix){ document.querySelectorAll(sel).forEach(function(el, i){ el.id = prefix + i; }); };
+  tag("#services-grid .card", "svc-"); tag("#timeline > li", "exp-"); tag("#cases .card", "case-"); tag("#sitesGrid .site", "site-");
+  var TOC = [
+    ["about", "About"],
+    ["services", "What I do", S.services.map(function(s, i){ return ["svc-" + i, s.title]; })],
+    ["process", "How I work"],
+    ["experience", "Experience", S.experience.map(function(e, i){ return ["exp-" + i, firstPart(e.org)]; })],
+    ["work", "Case studies", S.cases.map(function(c, i){ return ["case-" + i, firstPart(c.client)]; })],
+    ["websites", "Stores and websites", S.websites.map(function(w, i){ return ["site-" + i, w.name]; })],
+    ["results", "Proof"],
+    ["gallery", "Creative", S.galleryFilters.slice(1).map(function(f){ return ["gallery", f[1], f[0]]; })],
+    ["strategy", "Audits and plans"],
+    ["leadership", "Leadership"],
+    ["skills", "Skills"],
+    ["education", "Education"],
+    ["contact", "Contact"]
+  ];
+  var chev = '<svg class="i" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="m9 6 6 6-6 6"/></svg>';
+  $("tocList").innerHTML = '<li><a href="#top"><span class="n"></span>(Top)</a></li>' + TOC.map(function(t, i){
+    var subs = t[2] ? '<ol>' + t[2].map(function(s, k){
+      return '<li><a href="#' + s[0] + '"' + (s[2] ? ' data-gal="' + s[2] + '"' : "") + '><span class="n">' + (i + 1) + "." + (k + 1) + "</span>" + esc(s[1]) + "</a></li>";
+    }).join("") + "</ol>" : "";
+    return '<li data-sec="' + t[0] + '"><a href="#' + t[0] + '"><span class="n">' + (i + 1) + "</span>" + esc(t[1]) + "</a>" +
+      (subs ? '<button type="button" class="sub-toggle" aria-label="Show ' + esc(t[1]) + ' subsections" aria-expanded="false">' + chev + "</button>" + subs : "") + "</li>";
+  }).join("");
+
+  var setOpen = function(on){
+    body.classList.toggle("toc-open", on); tocBackdrop.hidden = !on;
+    tocBtn.setAttribute("aria-expanded", on);
+  };
+  var setPinned = function(on){
+    body.classList.toggle("toc-pinned", on);
+    tocBtn.setAttribute("aria-expanded", on);
+    try { localStorage.setItem("tocPinned", on ? "1" : "0"); } catch(e) {}
+  };
+  var pinnedPref = true;
+  try { pinnedPref = localStorage.getItem("tocPinned") !== "0"; } catch(e) {}
+  setPinned(pinnedPref);
+  tocBtn.addEventListener("click", function(){
+    if (desk.matches) setPinned(!body.classList.contains("toc-pinned"));
+    else setOpen(!body.classList.contains("toc-open"));
+  });
+  $("tocHide").addEventListener("click", function(){ if (desk.matches) setPinned(false); else setOpen(false); });
+  tocBackdrop.addEventListener("click", function(){ setOpen(false); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && body.classList.contains("toc-open")) setOpen(false); });
+
+  $("tocList").addEventListener("click", function(e){
+    var tg = e.target.closest(".sub-toggle");
+    if (tg) { var li = tg.parentNode, on = !li.classList.contains("open"); li.classList.toggle("open", on); li.dataset.user = "1"; tg.setAttribute("aria-expanded", on); return; }
+    var a = e.target.closest("a"); if (!a) return;
+    var id = a.getAttribute("href").slice(1), target = document.getElementById(id);
+    if (a.dataset.gal) { var fb = document.querySelector('#galFilters [data-f="' + a.dataset.gal + '"]'); if (fb) fb.click(); }
+    if (id.indexOf("case-") === 0) { var all = document.querySelector('#caseFilters [data-f="all"]'); if (all) all.click(); }
+    if (!desk.matches) setOpen(false);
+    if (target && id.indexOf("-") > -1) {
+      target.classList.add("flash");
+      setTimeout(function(){ target.classList.remove("flash"); }, 1600);
+    }
+  });
+
+  var tocItems = [].slice.call(document.querySelectorAll("#tocList > li[data-sec]"));
+  var spy = function(){
+    var y = window.innerHeight * 0.3, current = null;
+    tocItems.forEach(function(li){
+      var sec = document.getElementById(li.dataset.sec);
+      if (sec && sec.getBoundingClientRect().top <= y) current = li;
+    });
+    tocItems.forEach(function(li){
+      var on = li === current;
+      li.classList.toggle("active", on);
+      if (!li.dataset.user) {
+        li.classList.toggle("open", on && !!li.querySelector("ol"));
+        var t = li.querySelector(".sub-toggle"); if (t) t.setAttribute("aria-expanded", on);
+      }
+    });
+    if (current && body.classList.contains("toc-pinned")) {
+      var box = $("toc"), r = current.getBoundingClientRect(), br = box.getBoundingClientRect();
+      if (r.top < br.top + 40 || r.bottom > br.bottom - 40) box.scrollTop += r.top - br.top - 80;
+    }
+  };
+  var ticking = false;
+  window.addEventListener("scroll", function(){ if (!ticking) { ticking = true; requestAnimationFrame(function(){ spy(); ticking = false; }); } }, { passive: true });
+  spy();
+
   /* ---------- scroll reveal ---------- */
   var rvs = document.querySelectorAll(".rv");
   if (reduce || !("IntersectionObserver" in window)) {

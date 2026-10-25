@@ -378,3 +378,33 @@ a.site-shot{cursor:pointer}
 .site .visit{margin-top:auto;padding-top:.6rem;display:inline-flex;align-items:center;gap:.35rem;font:700 .9rem var(--display);text-decoration:none;color:var(--a1)}
 .site .visit svg.i{width:16px;height:16px}
 @media (prefers-reduced-motion:reduce){.site{transition:none}}
+
+/* contents sidebar (Wikipedia-style table of contents) */
+:root{--toc-w:268px}
+header.top .wrap.nav{width:auto;margin:0;padding:0 1.25rem}
+.nav-left{display:flex;align-items:center;gap:.7rem}
+.toc{position:fixed;top:calc(env(safe-area-inset-top,0px) + 69px);left:0;bottom:0;width:var(--toc-w);overflow-y:auto;overscroll-behavior:contain;padding:1.3rem .9rem 2.5rem 1.2rem;border-right:1px solid var(--line);background:var(--bg);z-index:18;font-size:.9rem;transform:translateX(-100%);visibility:hidden;transition:transform .25s ease,visibility .25s}
+body.toc-open .toc{transform:none;visibility:visible;box-shadow:var(--shadow)}
+.toc-head{display:flex;justify-content:space-between;align-items:baseline;padding:0 .5rem .7rem;margin-bottom:.4rem;border-bottom:1px solid var(--line)}
+.toc-head b{font:700 1rem var(--display)}
+.toc-head button{font:500 .78rem var(--mono);color:var(--a1);background:none;border:0;cursor:pointer;padding:.2rem .3rem}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc li{position:relative}
+.toc a{display:flex;gap:.5rem;padding:.32rem 1.6rem .32rem .5rem;border-radius:8px;color:var(--muted);text-decoration:none;line-height:1.35}
+.toc a:hover{background:var(--card);color:var(--ink)}
+.toc a .n{font:500 .72rem var(--mono);min-width:1.7rem;padding-top:.12rem;opacity:.75;flex:none}
+.toc li.active>a{color:var(--ink);background:var(--card);font-weight:700;box-shadow:inset 3px 0 0 var(--a2)}
+.toc .sub-toggle{position:absolute;right:.15rem;top:.2rem;width:24px;height:24px;border:0;background:none;color:var(--muted);cursor:pointer;border-radius:6px;display:grid;place-items:center;transition:transform .2s}
+.toc .sub-toggle:hover{background:var(--card);color:var(--ink)}
+.toc li.open>.sub-toggle{transform:rotate(90deg)}
+.toc ol ol{display:none;margin:.1rem 0 .45rem .95rem;padding-left:.4rem;border-left:1px solid var(--line)}
+.toc li.open>ol{display:block}
+.toc ol ol a{font-size:.84rem;padding:.24rem .5rem}
+.toc-backdrop{position:fixed;inset:0;background:rgba(3,6,20,.55);z-index:17}
+.flash{outline:3px solid var(--a2);outline-offset:4px;border-radius:22px;transition:outline-color .6s}
+@media (min-width:1200px){
+  body.toc-pinned .toc{transform:none;visibility:visible;box-shadow:none}
+  body.toc-pinned main,body.toc-pinned footer.f{margin-left:var(--toc-w)}
+  .toc-backdrop{display:none!important}
+}
+@media (prefers-reduced-motion:reduce){.toc,.toc .sub-toggle{transition:none}}

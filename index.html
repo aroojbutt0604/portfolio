@@ -16,22 +16,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=6">
+<link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 <body>
 <a class="skip" href="#about">Skip to content</a>
 <header class="top">
   <div class="wrap nav">
-    <a class="logo" href="#top"><i>AB</i><span>Arooj Butt</span></a>
-    <nav aria-label="Primary"><ul>
-      <li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#experience">Experience</a></li><li><a href="#work">Case studies</a></li><li><a href="#websites">Websites</a></li><li><a href="#gallery">Creative</a></li><li><a href="#contact">Contact</a></li>
-    </ul></nav>
+    <div class="nav-left">
+      <button class="icon-btn toc-btn" id="tocBtn" type="button" aria-controls="toc" aria-expanded="false" aria-label="Show contents"><svg class="i" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+      <a class="logo" href="#top"><i>AB</i><span>Arooj Butt</span></a>
+    </div>
     <div class="tools">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
       <a class="btn primary sm" href="#contact">Hire me</a>
     </div>
   </div>
 </header>
+
+<aside class="toc" id="toc" aria-label="Contents">
+  <div class="toc-head"><b>Contents</b><button type="button" id="tocHide">hide</button></div>
+  <nav><ol id="tocList"></ol></nav>
+</aside>
+<div class="toc-backdrop" id="tocBackdrop" hidden></div>
 
 <main id="top">
 <section class="hero">
@@ -77,7 +83,7 @@
   </div>
 </section>
 
-<section class="s process" style="padding-top:1rem">
+<section class="s process" id="process" style="padding-top:1rem">
   <div class="wrap">
     <div class="head"><span class="eyebrow">Process</span><h2>How I work</h2><p>The same five steps behind every account, refined across 20+ brands.</p></div>
     <ol class="flow" id="process"></ol>
@@ -182,7 +188,7 @@
 </dialog>
 
 <noscript><p style="text-align:center;padding:2rem">This portfolio needs JavaScript to show its case studies and gallery. Email <a href="mailto:aroojbutt0604@gmail.com">aroojbutt0604@gmail.com</a>.</p></noscript>
-<script src="assets/js/content.js?v=6"></script>
-<script src="assets/js/main.js?v=6"></script>
+<script src="assets/js/content.js?v=7"></script>
+<script src="assets/js/main.js?v=7"></script>
 </body>
 </html>
