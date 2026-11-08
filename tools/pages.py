@@ -8,7 +8,7 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "27"
+ASSET_VERSION = "28"
 
 NAV = [("index.html", "Home"), ("work.html", "Work")]
 
@@ -148,10 +148,9 @@ def page(name, cfg):
     seclinks = "".join(f'<a href="#{sid}" data-sec="{sid}">{label}</a>' for sid, label in cfg.get("nav", []))
     v = ASSET_VERSION
     return f'''<!DOCTYPE html>
-<html lang="en" data-palette="peacock">
+<html lang="en" data-palette="peacock" data-theme="light">
 <head>
 <meta charset="utf-8">
-<script>try{{var d=document.documentElement,t=localStorage.getItem("theme");if(t)d.setAttribute("data-theme",t)}}catch(e){{}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{cfg["title"]}</title>
 <meta name="description" content="{cfg["desc"]}">
@@ -161,7 +160,8 @@ def page(name, cfg):
 <meta property="og:description" content="{cfg["desc"]}">
 <meta property="og:image" content="assets/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#3D4FE8">
+<meta name="theme-color" content="#f2f2ee">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -176,7 +176,6 @@ def page(name, cfg):
     <nav class="pages" aria-label="Pages">{links}</nav>
     <nav class="sec-links" id="secLinks" aria-label="On this page">{seclinks}</nav>
     <div class="tools">
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark">{ICON_THEME}</button>
       <a class="btn primary sm" href="#contact">Hire me</a>
     </div>
   </div>

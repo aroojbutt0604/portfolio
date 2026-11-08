@@ -643,3 +643,4 @@ header.top .nav{gap:.9rem}
 :root[data-palette] :is(#about,#featured,#skills,#websites){background:radial-gradient(50% 60% at 0% 0%,color-mix(in srgb,var(--a1) 9%,transparent),transparent 70%),var(--bg2)}
 :root[data-palette] :is(#how-i-work,#strategy,#contact,#results,#about,#featured,#skills,#websites){padding-top:clamp(3.2rem,6vw,5rem)!important;padding-bottom:clamp(3.2rem,6vw,5rem)}
 :root[data-palette] :is(#how-i-work,#strategy,#contact,#results,footer.f) + .s,:root[data-palette] :is(#about,#featured,#skills,#websites) + .s{padding-top:clamp(3rem,5vw,4.5rem)!important}
+:root{color-scheme:light}

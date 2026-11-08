@@ -44,15 +44,7 @@
   };
   var icon = function(name, cls){ return '<svg class="i' + (cls ? " " + cls : "") + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || ICONS.spark) + "</svg>"; };
 
-  /* ---------- theme ---------- */
-  $("themeBtn").addEventListener("click", function(){
-    var cur = root.getAttribute("data-theme");
-    if (!cur) cur = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
-    var next = cur === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("theme", next); } catch(e) {}
-  });
-  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch(e) {}
+  /* light theme only (Peacock & Pearl); no dark mode */
 
 
   /* ---------- hero (home): proof-first ---------- */
