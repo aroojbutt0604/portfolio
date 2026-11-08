@@ -549,3 +549,97 @@ header.top .nav{gap:.9rem}
   .secnav a.active .lbl{opacity:0;transform:translateX(6px);background:none;border-color:transparent;box-shadow:none;padding:0}
   .secnav:hover a.active .lbl,.secnav:focus-within a.active .lbl{opacity:1;transform:none}
 }
+
+/* ---------- proof-first hero (from the Proof layout) ---------- */
+.hero .wrap.phero-grid{max-width:1160px;text-align:left;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero h1.phero-h{font-size:clamp(2.4rem,4.3vw,3.7rem);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin:1.1rem 0 1.2rem}
+.phero-lede{color:var(--muted);font-size:1.12rem;max-width:36rem;margin:0 0 1.8rem}
+.phero .cta{justify-content:flex-start;margin-bottom:1.3rem}
+.phero .cta .i{width:18px;height:18px}
+.phero-plats{font-size:.86rem;color:var(--muted);margin:0}
+.phero-shot{position:relative;margin:0}
+.phero-frame{display:block;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);transform:rotate(-1.2deg);transition:transform .4s}
+.phero-frame:hover{transform:rotate(0)}
+.phero-frame img{display:block;width:100%;height:auto}
+.phero-shot figcaption{margin-top:1.3rem;font-size:.88rem;color:var(--muted)}
+.phero-shot figcaption b{color:var(--ink)}
+.phero-shot .chip-float.c1{left:-1.2rem;bottom:2.6rem}
+.phero-shot .chip-float.c2{right:-1rem;top:-1.4rem}
+.phero-shot .chip-float span{max-width:12ch}
+.pstrip{gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.pstrip div{border:0;border-radius:0;background:var(--bg);padding:1.3rem 1.2rem}
+@media (max-width:900px){
+  .hero .wrap.phero-grid{grid-template-columns:1fr}
+  .phero-shot{max-width:620px}
+}
+/* tighter proof-first hero: less empty space above and below */
+.hero.phero{padding:clamp(1.6rem,3.5vw,2.8rem) 0 clamp(1.6rem,3vw,2.4rem)}
+.hero h1.phero-h{margin:.9rem 0 .9rem}
+.phero-lede{margin-bottom:1.4rem}
+.phero .cta{margin-bottom:1rem}
+.phero-shot figcaption{margin-top:1rem}
+
+/* ---------- colour theme: Peacock & Pearl. About 90% two colours (dark D, light L), 10% one accent (A on dark, Al on light).
+   Light mode: L background, D text. Dark mode: D background, L text. ---------- */
+:root[data-palette="peacock"]{--D:#0b3a52;--L:#f2f2ee;--A:#ff6fae;--Al:#c2186b;--onA:#3a0620;--onAl:#ffffff}
+:root[data-palette]{
+  --bg:var(--L);--bg2:color-mix(in oklab,var(--L) 90%,var(--D));--card:color-mix(in srgb,#fff 45%,var(--L));--ink:var(--D);
+  --muted:color-mix(in oklab,var(--D) 68%,var(--L));--line:color-mix(in oklab,var(--D) 14%,var(--L));
+  --a1:var(--Al);--a2:var(--Al);--grad:linear-gradient(120deg,var(--Al),color-mix(in oklab,var(--Al) 62%,var(--D)));--on-grad:var(--onAl);
+  --glow1:color-mix(in srgb,var(--Al) 16%,transparent);--glow2:color-mix(in srgb,var(--D) 8%,transparent);--nav-bg:color-mix(in srgb,var(--L) 88%,transparent);
+  --mark:color-mix(in srgb,var(--Al) 20%,transparent);--shadow:0 18px 40px -22px color-mix(in srgb,var(--D) 45%,transparent)
+}
+@media (prefers-color-scheme: dark){
+  :root[data-palette]:not([data-theme="light"]){
+  --bg:var(--D);--bg2:color-mix(in oklab,var(--D) 86%,var(--L));--card:color-mix(in srgb,var(--L) 5%,transparent);--ink:var(--L);
+  --muted:color-mix(in oklab,var(--L) 64%,var(--D));--line:color-mix(in srgb,var(--L) 12%,transparent);
+  --a1:var(--A);--a2:var(--A);--grad:linear-gradient(120deg,var(--A),color-mix(in oklab,var(--A) 70%,var(--L)));--on-grad:var(--onA);
+  --glow1:color-mix(in srgb,var(--A) 22%,transparent);--glow2:color-mix(in srgb,var(--L) 6%,transparent);--nav-bg:color-mix(in srgb,var(--D) 86%,transparent);
+  --mark:color-mix(in srgb,var(--A) 26%,transparent);--shadow:0 24px 50px -26px rgba(0,0,0,.85)
+  }
+}
+:root[data-palette][data-theme="dark"]{
+  --bg:var(--D);--bg2:color-mix(in oklab,var(--D) 86%,var(--L));--card:color-mix(in srgb,var(--L) 5%,transparent);--ink:var(--L);
+  --muted:color-mix(in oklab,var(--L) 64%,var(--D));--line:color-mix(in srgb,var(--L) 12%,transparent);
+  --a1:var(--A);--a2:var(--A);--grad:linear-gradient(120deg,var(--A),color-mix(in oklab,var(--A) 70%,var(--L)));--on-grad:var(--onA);
+  --glow1:color-mix(in srgb,var(--A) 22%,transparent);--glow2:color-mix(in srgb,var(--L) 6%,transparent);--nav-bg:color-mix(in srgb,var(--D) 86%,transparent);
+  --mark:color-mix(in srgb,var(--A) 26%,transparent);--shadow:0 24px 50px -26px rgba(0,0,0,.85)
+}
+:root[data-palette] .chip-float{background:var(--bg)}
+
+
+/* social buttons under the hero buttons */
+.phero-social{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.1rem}
+.soc-pill{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .9rem;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 .88rem var(--body);text-decoration:none;transition:border-color .2s,transform .2s}
+.soc-pill:hover{border-color:var(--a1);transform:translateY(-1px)}
+.soc-pill .i{width:17px;height:17px}
+
+/* ---------- colour blocking: alternate bands so long pages stay lively ----------
+   Contrast bands take the opposite mode's colours (dark teal in light mode, pearl in dark mode);
+   tinted bands sit a shade off the page colour with a faint accent glow. */
+:root[data-palette] :is(#how-i-work,#strategy,#contact,#results,footer.f){
+  --bg:var(--D);--bg2:color-mix(in oklab,var(--D) 86%,var(--L));--card:color-mix(in srgb,var(--L) 6%,transparent);--ink:var(--L);
+  --muted:color-mix(in oklab,var(--L) 66%,var(--D));--line:color-mix(in srgb,var(--L) 13%,transparent);
+  --a1:var(--A);--a2:var(--A);--grad:linear-gradient(120deg,var(--A),color-mix(in oklab,var(--A) 70%,var(--L)));--on-grad:var(--onA);
+  --mark:color-mix(in srgb,var(--A) 26%,transparent);--shadow:0 24px 50px -26px rgba(0,0,0,.85);
+  background:radial-gradient(55% 70% at 100% 0%,color-mix(in srgb,var(--a1) 16%,transparent),transparent 70%),var(--bg);color:var(--ink)
+}
+:root[data-palette][data-theme="dark"] :is(#how-i-work,#strategy,#contact,#results,footer.f){
+  --bg:var(--L);--bg2:color-mix(in oklab,var(--L) 90%,var(--D));--card:color-mix(in srgb,#fff 45%,var(--L));--ink:var(--D);
+  --muted:color-mix(in oklab,var(--D) 68%,var(--L));--line:color-mix(in oklab,var(--D) 14%,var(--L));
+  --a1:var(--Al);--a2:var(--Al);--grad:linear-gradient(120deg,var(--Al),color-mix(in oklab,var(--Al) 62%,var(--D)));--on-grad:var(--onAl);
+  --mark:color-mix(in srgb,var(--Al) 20%,transparent);--shadow:0 18px 40px -22px color-mix(in srgb,var(--D) 45%,transparent);
+  background:radial-gradient(55% 70% at 100% 0%,color-mix(in srgb,var(--a1) 12%,transparent),transparent 70%),var(--bg);color:var(--ink)
+}
+@media (prefers-color-scheme: dark){
+  :root[data-palette]:not([data-theme="light"]) :is(#how-i-work,#strategy,#contact,#results,footer.f){
+  --bg:var(--L);--bg2:color-mix(in oklab,var(--L) 90%,var(--D));--card:color-mix(in srgb,#fff 45%,var(--L));--ink:var(--D);
+  --muted:color-mix(in oklab,var(--D) 68%,var(--L));--line:color-mix(in oklab,var(--D) 14%,var(--L));
+  --a1:var(--Al);--a2:var(--Al);--grad:linear-gradient(120deg,var(--Al),color-mix(in oklab,var(--Al) 62%,var(--D)));--on-grad:var(--onAl);
+  --mark:color-mix(in srgb,var(--Al) 20%,transparent);--shadow:0 18px 40px -22px color-mix(in srgb,var(--D) 45%,transparent);
+  background:radial-gradient(55% 70% at 100% 0%,color-mix(in srgb,var(--a1) 12%,transparent),transparent 70%),var(--bg);color:var(--ink)
+  }
+}
+:root[data-palette] :is(#about,#featured,#skills,#websites){background:radial-gradient(50% 60% at 0% 0%,color-mix(in srgb,var(--a1) 9%,transparent),transparent 70%),var(--bg2)}
+:root[data-palette] :is(#how-i-work,#strategy,#contact,#results,#about,#featured,#skills,#websites){padding-top:clamp(3.2rem,6vw,5rem)!important;padding-bottom:clamp(3.2rem,6vw,5rem)}
+:root[data-palette] :is(#how-i-work,#strategy,#contact,#results,footer.f) + .s,:root[data-palette] :is(#about,#featured,#skills,#websites) + .s{padding-top:clamp(3rem,5vw,4.5rem)!important}

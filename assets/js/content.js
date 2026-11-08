@@ -19,6 +19,7 @@ window.SITE = {
     whatsapp: "https://wa.me/923464035389",
     instagram: "https://instagram.com/marketingwithrooj",
     instagramHandle: "@marketingwithrooj",
+    threads: "https://www.threads.net/@marketingwithrooj",
     linkedin: "https://www.linkedin.com/in/arooj-butt-performance-marketer/",
     portrait: "assets/img/full/portrait.jpg",
     heroImage: "assets/img/full/veyora-social-mockup.jpg"

@@ -8,7 +8,7 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "17"
+ASSET_VERSION = "27"
 
 NAV = [("index.html", "Home"), ("work.html", "Work")]
 
@@ -34,27 +34,27 @@ def more(href, text):
     return f'    <div class="more-wrap"><a class="btn" href="{href}">{text} {ICON_ARROW}</a></div>'
 
 
-HERO = '''<section class="hero" id="top" data-label="Intro">
-  <div class="wrap hero-grid">
-    <div>
+HERO = '''<section class="hero phero" id="top" data-label="Intro">
+  <div class="wrap phero-grid">
+    <div class="phero-txt">
       <div class="status"><b>AB</b><span id="statusText"></span><span class="dot" aria-hidden="true"></span></div>
-      <h1 id="heroName">Arooj Butt</h1>
-      <div class="role grad"><span id="role"></span><span class="caret" aria-hidden="true"></span></div>
-      <p class="tagline" id="tagline"></p>
-      <p class="lede" id="lede"></p>
-      <div class="cta"><a class="btn primary" href="work.html">See the results</a><a class="btn" href="#contact">Get in touch</a></div>
-      <div class="socials" id="heroSocials"></div>
+      <h1 class="phero-h"><span class="sr">Arooj Butt: </span>Ad spend in.<br><span class="grad">Leads, bookings and orders</span> out.</h1>
+      <p class="phero-lede" id="lede"></p>
+      <div class="cta"><a class="btn primary" href="work.html">See the case studies ''' + ICON_ARROW + '''</a><a class="btn" id="heroWa" target="_blank" rel="noopener">Ask about your ads</a></div>
+      <div class="phero-social" id="heroSocialRow" aria-label="Arooj on social media"></div>
+      <p class="phero-plats">Meta Ads · Google Ads (Search, PMax) · WhatsApp funnels · Shopify · Pakistan, US, Australia</p>
     </div>
-    <div class="hero-visual">
-      <div class="frame"><img id="heroImg" alt="Social media design work for Quantum Telehealth, Navory and Cafe Noir shown on phones and a tablet" width="1600" height="1066" fetchpriority="high"></div>
-      <div class="chip-float c1"><b>1,129</b><span>conversations at Rs38</span></div>
-      <div class="chip-float c2"><b>3.5x</b><span>CPA gap found and fixed</span></div>
-    </div>
+    <figure class="phero-shot">
+      <a class="phero-frame" href="work.html#results" aria-label="See the dashboards from the ad accounts"><img src="assets/img/full/meta-visa-conversations.jpg" alt="Meta performance overview: 1,129 messaging conversations at Rs38.07 each" width="1600" height="900" fetchpriority="high"></a>
+      <figcaption><b>Rs38.07</b> per WhatsApp conversation · 1,129 conversations · 44% below Meta's peer median</figcaption>
+      <div class="chip-float c1"><b>692</b><span>Google Ads conversions</span></div>
+      <div class="chip-float c2"><b>~800</b><span>orders in 2 months</span></div>
+    </figure>
   </div>
 </section>
 
 <section class="s" style="padding-top:0" aria-label="Key results">
-  <div class="wrap"><div class="proof" id="proof"></div></div>
+  <div class="wrap"><div class="proof pstrip" id="proof"></div></div>
 </section>'''
 
 ABOUT = '''<section class="s" id="about" data-label="About" style="padding-top:1rem">
@@ -148,9 +148,10 @@ def page(name, cfg):
     seclinks = "".join(f'<a href="#{sid}" data-sec="{sid}">{label}</a>' for sid, label in cfg.get("nav", []))
     v = ASSET_VERSION
     return f'''<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="peacock">
 <head>
 <meta charset="utf-8">
+<script>try{{var d=document.documentElement,t=localStorage.getItem("theme");if(t)d.setAttribute("data-theme",t)}}catch(e){{}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{cfg["title"]}</title>
 <meta name="description" content="{cfg["desc"]}">
@@ -175,7 +176,7 @@ def page(name, cfg):
     <nav class="pages" aria-label="Pages">{links}</nav>
     <nav class="sec-links" id="secLinks" aria-label="On this page">{seclinks}</nav>
     <div class="tools">
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme">{ICON_THEME}</button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark">{ICON_THEME}</button>
       <a class="btn primary sm" href="#contact">Hire me</a>
     </div>
   </div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="peacock">
 <head>
 <meta charset="utf-8">
+<script>try{var d=document.documentElement,t=localStorage.getItem("theme");if(t)d.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Arooj Butt | Growth Marketing and Paid Advertising</title>
 <meta name="description" content="Arooj Butt is a growth marketer running Meta Ads, Google Ads, Shopify stores, websites, AI automations, WhatsApp funnels, UGC and brand building for brands in Pakistan, the US and Australia.">
@@ -16,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=17">
+<link rel="stylesheet" href="assets/css/style.css?v=27">
 </head>
 <body data-page="index">
 <a class="skip" href="#main">Skip to content</a>
@@ -26,7 +27,7 @@
     <nav class="pages" aria-label="Pages"><a href="index.html" aria-current="page">Home</a><a href="work.html">Work</a></nav>
     <nav class="sec-links" id="secLinks" aria-label="On this page"><a href="#about" data-sec="about">About</a><a href="#how-i-work" data-sec="how-i-work">How I work</a><a href="#experience" data-sec="experience">Experience</a><a href="#featured" data-sec="featured">Selected work</a><a href="#skills" data-sec="skills">Skills</a></nav>
     <div class="tools">
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
       <a class="btn primary sm" href="#contact">Hire me</a>
     </div>
   </div>
@@ -38,27 +39,27 @@
 <div class="toc-backdrop" id="secBackdrop" hidden></div>
 
 <main id="main">
-<section class="hero" id="top" data-label="Intro">
-  <div class="wrap hero-grid">
-    <div>
+<section class="hero phero" id="top" data-label="Intro">
+  <div class="wrap phero-grid">
+    <div class="phero-txt">
       <div class="status"><b>AB</b><span id="statusText"></span><span class="dot" aria-hidden="true"></span></div>
-      <h1 id="heroName">Arooj Butt</h1>
-      <div class="role grad"><span id="role"></span><span class="caret" aria-hidden="true"></span></div>
-      <p class="tagline" id="tagline"></p>
-      <p class="lede" id="lede"></p>
-      <div class="cta"><a class="btn primary" href="work.html">See the results</a><a class="btn" href="#contact">Get in touch</a></div>
-      <div class="socials" id="heroSocials"></div>
+      <h1 class="phero-h"><span class="sr">Arooj Butt: </span>Ad spend in.<br><span class="grad">Leads, bookings and orders</span> out.</h1>
+      <p class="phero-lede" id="lede"></p>
+      <div class="cta"><a class="btn primary" href="work.html">See the case studies <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a><a class="btn" id="heroWa" target="_blank" rel="noopener">Ask about your ads</a></div>
+      <div class="phero-social" id="heroSocialRow" aria-label="Arooj on social media"></div>
+      <p class="phero-plats">Meta Ads · Google Ads (Search, PMax) · WhatsApp funnels · Shopify · Pakistan, US, Australia</p>
     </div>
-    <div class="hero-visual">
-      <div class="frame"><img id="heroImg" alt="Social media design work for Quantum Telehealth, Navory and Cafe Noir shown on phones and a tablet" width="1600" height="1066" fetchpriority="high"></div>
-      <div class="chip-float c1"><b>1,129</b><span>conversations at Rs38</span></div>
-      <div class="chip-float c2"><b>3.5x</b><span>CPA gap found and fixed</span></div>
-    </div>
+    <figure class="phero-shot">
+      <a class="phero-frame" href="work.html#results" aria-label="See the dashboards from the ad accounts"><img src="assets/img/full/meta-visa-conversations.jpg" alt="Meta performance overview: 1,129 messaging conversations at Rs38.07 each" width="1600" height="900" fetchpriority="high"></a>
+      <figcaption><b>Rs38.07</b> per WhatsApp conversation · 1,129 conversations · 44% below Meta's peer median</figcaption>
+      <div class="chip-float c1"><b>692</b><span>Google Ads conversions</span></div>
+      <div class="chip-float c2"><b>~800</b><span>orders in 2 months</span></div>
+    </figure>
   </div>
 </section>
 
 <section class="s" style="padding-top:0" aria-label="Key results">
-  <div class="wrap"><div class="proof" id="proof"></div></div>
+  <div class="wrap"><div class="proof pstrip" id="proof"></div></div>
 </section>
 
 <section class="s" id="about" data-label="About" style="padding-top:1rem">
@@ -159,7 +160,7 @@
 </dialog>
 
 <noscript><p style="text-align:center;padding:2rem">This portfolio needs JavaScript to show its work. Email <a href="mailto:aroojbutt0604@gmail.com">aroojbutt0604@gmail.com</a>.</p></noscript>
-<script src="assets/js/content.js?v=17"></script>
-<script src="assets/js/main.js?v=17"></script>
+<script src="assets/js/content.js?v=27"></script>
+<script src="assets/js/main.js?v=27"></script>
 </body>
 </html>

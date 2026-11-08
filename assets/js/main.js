@@ -31,6 +31,7 @@
     mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
     insta:'<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>',
     linkedin:'<rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/>',
+    threads:'<path d="M16.4 11.3c-.3-2.9-2.2-4.4-4.9-4.3-2.7.1-4.3 1.9-4.2 4.4.1 2.4 1.8 4 4.2 4 2.6 0 4-1.7 4.1-4.3"/><path d="M16.5 11.6c.1 4.3 2.4 5.6 3.4 3.1 1.4-3.5-.4-9.5-7.3-10C6.3 4.2 3.6 8.3 3.7 12.3c.1 4.9 3.6 8.3 8.6 8.2 2.1 0 3.7-.6 4.9-1.5"/>',
     whatsapp:'<path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.3-1.8-1-1 .8a4 4 0 0 1-2.4-2.4l.8-1-1-1.8z"/>',
     layers:'<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>',
     monitor:'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
@@ -53,33 +54,18 @@
   });
   try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch(e) {}
 
-  /* ---------- hero (home) ---------- */
-  if ($("heroImg")) {
-  $("statusText").textContent = P.status;
-  $("tagline").textContent = P.tagline;
-  $("lede").textContent = P.lede;
-  $("heroImg").src = P.heroImage;
-  var socials = [
-    ["insta", P.instagram, "Instagram"], ["linkedin", P.linkedin, "LinkedIn"],
-    ["whatsapp", P.whatsapp, "WhatsApp"], ["mail", "mailto:" + P.email, "Email"]
-  ];
-  $("heroSocials").innerHTML = socials.map(function(s){
-    return '<a class="icon-btn" href="' + esc(s[1]) + '" aria-label="' + s[2] + '"' + (s[1].indexOf("http") === 0 ? ' target="_blank" rel="noopener"' : "") + ">" + icon(s[0]) + "</a>";
-  }).join("");
 
-  var roleEl = $("role");
-  roleEl.textContent = P.roles[0];
-  if (!reduce) {
-    var ri = 0, ci = P.roles[0].length, del = true;
-    var loop = function(){
-      var w = P.roles[ri];
-      if (!del) { ci++; roleEl.textContent = w.slice(0, ci); if (ci === w.length) { del = true; return setTimeout(loop, 1700); } return setTimeout(loop, 60); }
-      ci--; roleEl.textContent = w.slice(0, ci);
-      if (ci === 0) { del = false; ri = (ri + 1) % P.roles.length; return setTimeout(loop, 300); }
-      return setTimeout(loop, 28);
-    };
-    setTimeout(loop, 2200);
-  }
+  /* ---------- hero (home): proof-first ---------- */
+  if ($("heroWa")) {
+    $("statusText").textContent = P.status;
+    $("lede").textContent = P.lede;
+    var wa = $("heroWa");
+    wa.href = P.whatsapp + "?text=" + encodeURIComponent("Hi Arooj, can you look at our ad account?");
+    wa.innerHTML = icon("whatsapp") + " Ask about your ads";
+    var soc = $("heroSocialRow");
+    if (soc) soc.innerHTML = [["insta", P.instagram, "Instagram"], ["threads", P.threads, "Threads"], ["linkedin", P.linkedin, "LinkedIn"]]
+      .filter(function(x){ return x[1]; })
+      .map(function(x){ return '<a class="soc-pill" href="' + esc(x[1]) + '" target="_blank" rel="noopener">' + icon(x[0]) + "<span>" + x[2] + "</span></a>"; }).join("");
   }
 
   /* ---------- proof, about ---------- */
