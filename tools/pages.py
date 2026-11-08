@@ -8,7 +8,7 @@ Content (text, numbers, images) lives in assets/js/content.js and needs no rebui
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ASSET_VERSION = "28"
+ASSET_VERSION = "34"
 
 NAV = [("index.html", "Home"), ("work.html", "Work")]
 
@@ -35,6 +35,7 @@ def more(href, text):
 
 
 HERO = '''<section class="hero phero" id="top" data-label="Intro">
+  <canvas id="heroFx" aria-hidden="true"></canvas>
   <div class="wrap phero-grid">
     <div class="phero-txt">
       <div class="status"><b>AB</b><span id="statusText"></span><span class="dot" aria-hidden="true"></span></div>
@@ -204,6 +205,7 @@ def page(name, cfg):
 <noscript><p style="text-align:center;padding:2rem">This portfolio needs JavaScript to show its work. Email <a href="mailto:aroojbutt0604@gmail.com">aroojbutt0604@gmail.com</a>.</p></noscript>
 <script src="assets/js/content.js?v={v}"></script>
 <script src="assets/js/main.js?v={v}"></script>
+<script src="assets/js/herofx.js?v={v}"></script>
 </body>
 </html>
 '''

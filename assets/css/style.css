@@ -644,3 +644,10 @@ header.top .nav{gap:.9rem}
 :root[data-palette] :is(#how-i-work,#strategy,#contact,#results,#about,#featured,#skills,#websites){padding-top:clamp(3.2rem,6vw,5rem)!important;padding-bottom:clamp(3.2rem,6vw,5rem)}
 :root[data-palette] :is(#how-i-work,#strategy,#contact,#results,footer.f) + .s,:root[data-palette] :is(#about,#featured,#skills,#websites) + .s{padding-top:clamp(3rem,5vw,4.5rem)!important}
 :root{color-scheme:light}
+
+/* ---------- hero background animation ---------- */
+#heroFx{position:absolute;inset:0;z-index:0;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.45) 38%,#000 62%);mask-image:linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.45) 38%,#000 62%)}
+@media (max-width:900px){#heroFx{-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.4) 60%,#000);mask-image:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.4) 60%,#000)}}
+.phero .phero-grid{position:relative;z-index:1}
+
